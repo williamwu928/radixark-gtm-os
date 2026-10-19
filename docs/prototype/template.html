@@ -1,0 +1,259 @@
+<title>RadixArk GTM OS</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ink top bar, left nav rail, white main column: KPI strip, wide table, side action panel. Single light theme by design. */
+:root{
+  --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F6F4F1; --ink:#0C0B0A; --muted:#6B645E; --line:#E6E2DD; --line-strong:#CBC5BD;
+  --accent:#D55816; --accent-soft:#FBE6DA; --ok:#2E7D4F; --warn:#B7791F;
+  --font:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--font);font-variant-numeric:tabular-nums}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:var(--accent)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--ink);color:#fff}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+.brand{font-weight:600;letter-spacing:.02em}.brand b{color:#F0753A}
+.top .tag{font:11px var(--mono);opacity:.7}
+.search{flex:1;min-width:160px;max-width:420px;position:relative}
+.search input{width:100%;padding:7px 10px;border-radius:6px;border:1px solid #3a332c;background:#1d1915;color:#fff;font:inherit}
+.search input::placeholder{color:#8f847a}
+.results{position:absolute;top:100%;left:0;right:0;background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:6px;margin-top:4px;max-height:320px;overflow:auto;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.results button{display:flex;gap:8px;width:100%;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.results button:hover{background:var(--accent-soft)}
+.user{font-size:12px;opacity:.8}
+.shell{display:grid;grid-template-columns:200px 1fr;min-height:calc(100% - 52px)}
+nav{border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:2px;background:var(--surface-2)}
+nav button{text-align:left;padding:8px 10px;border-radius:6px;color:var(--muted)}
+nav button .q{display:block;font-size:11px;line-height:1.3;margin-top:2px;color:var(--muted);opacity:.8}
+nav button.on{background:var(--surface);color:var(--ink);box-shadow:inset 3px 0 0 var(--accent)}
+nav .sect{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 10px 4px}
+main{padding-block:18px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));min-width:0;background:var(--bg)}
+h1{font-size:20px;font-weight:600;margin:0 0 4px;text-wrap:balance}
+h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sub{color:var(--muted);margin:0 0 14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.kpi{background:var(--surface);padding:10px 12px}
+.kpi .n{font-size:24px;font-weight:600;line-height:1.1}
+.kpi .n.na{font-size:15px;color:var(--muted);font-weight:500}
+.kpi .l{font-size:12px;color:var(--muted);margin-top:2px}
+.note{font-size:12px;color:var(--muted);margin-top:6px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+select,input[type=text],textarea{font:inherit;padding:5px 8px;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface);color:var(--ink)}
+.wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:860px}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-strong);white-space:nowrap;background:var(--surface-2)}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.row{cursor:pointer}tr.row:hover td{background:var(--accent-soft)}
+.pill{display:inline-block;font-size:11px;padding:2px 7px;border-radius:999px;border:1px solid var(--line-strong);margin:1px 2px 1px 0;white-space:nowrap}
+.pill.prod{background:var(--accent-soft);border-color:transparent}
+.pill.na{color:var(--muted);border-color:var(--line)}
+.pill.ok{border-color:var(--ok);color:var(--ok)}
+.unk{color:var(--muted);font-style:italic}
+.grid2{display:grid;grid-template-columns:1fr 300px;gap:18px}
+.panel{background:var(--surface-2);border:1px solid var(--line);padding:12px}
+.panel h3{margin:0 0 8px;font-size:13px}
+.panel .act{display:block;width:100%;text-align:left;padding:8px 10px;border:1px solid var(--line-strong);border-radius:6px;margin-bottom:6px;background:var(--surface)}
+.panel .act.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.panel .act:disabled{opacity:.55;cursor:not-allowed}
+.chain{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.chain button{text-align:left;background:var(--surface);border:1px solid var(--line);padding:10px;border-radius:6px}
+.chain button:hover{border-color:var(--accent)}
+.chain .n{font-size:20px;font-weight:600}.chain .s{font-size:12px;color:var(--muted)}
+.chain .cross{grid-column:1/-1;border-style:dashed;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.matrix td,.matrix th{text-align:center}.matrix td:first-child,.matrix th:first-child{text-align:left}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line-strong);margin:14px 0;overflow-x:auto}
+.tabs button{padding:8px 12px;color:var(--muted);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.on{color:var(--ink);border-color:var(--accent)}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 10px}
+dl{display:grid;grid-template-columns:170px 1fr;gap:6px 12px;margin:0}dt{color:var(--muted);font-size:12px}dd{margin:0}
+.empty{padding:22px;border:1px dashed var(--line-strong);color:var(--muted);text-align:center;background:var(--surface)}
+.empty b{color:var(--ink);display:block;margin-bottom:4px}
+.rn{border-left:3px solid var(--line-strong);padding:8px 10px;background:var(--surface);margin-bottom:6px}
+.rn .m{font:11px var(--mono);color:var(--muted)}
+.back{color:var(--accent);font-size:13px;padding:0;margin-bottom:8px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:8px 0}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:4px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+@media (max-width:820px){.shell{grid-template-columns:1fr}nav{flex-direction:row;flex-wrap:wrap;border-right:0;border-bottom:1px solid var(--line)}nav .sect{display:none}nav button .q{display:none}.grid2{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="top">
+  <div class="brand">Radix<b>Ark</b> GTM OS <span class="tag">prototype · register as of 2026-10-18</span></div>
+  <div class="search"><input id="q" type="text" placeholder="Search accounts, models, notes…" autocomplete="off"><div class="results" id="qres" hidden></div></div>
+  <div class="user">Signed in · RadixArk team</div>
+</div>
+<div class="shell">
+  <nav id="nav"></nav>
+  <main id="main"></main>
+</div>
+
+<script>
+const SEED = /*__SEED__*/;
+const S = {view:'overview', acct:null, tab:0, rtab:0, f:{}};
+const SEG = Object.fromEntries(SEED.segments.map(s=>[s.id,s]));
+const SEGORDER = ['hardware','cloud','models','platform','applications','enterprise','data'];
+const SCALE_INPUTS={hardware:'Serving frameworks with a backend; runnable model families',cloud:'Models served; priced endpoints; throughput coverage',models:'30-day HF downloads; models published in 90 days; serving providers',data:'Post-training integrations; GitHub stars; releases in 90 days',platform:'Model-catalogue size; partner-program size',applications:'Open ML/infra roles; headcount growth; HF and GitHub presence',enterprise:'Open ML-platform and inference roles; public deployments'};
+
+// Research notes: the register's sourced facts, as plain notes (text, source, date).
+const data = () => {
+  const notes = SEED.evidence.map(e=>({id:e.evidence_id,account_id:e.account_id,text:e.claim,source:SEED.sources[e.source_id],source_id:e.source_id,date:e.reviewed}));
+  const acc = SEED.accounts.map(a=>({...a, origin:'Researched', status:'Unset', notes:notes.filter(n=>n.account_id===a.account_id)}));
+  return {acc, notes, sources:SEED.sources};
+};
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const unk = (v,l='Unknown') => v==null||v===''||v==='Unknown' ? `<span class="unk">${l}</span>` : esc(v);
+const rank = () => '<span class="unk">Not computed</span>';
+const prods = a => a.products.length? a.products.map(p=>`<span class="pill prod">${esc(p)}</span>`).join('') : '<span class="unk">—</span>';
+
+const VIEWS = [
+  ['overview','Overview','Where is coverage, and what is ranked and owned?'],
+  ['accounts','Accounts','Who is this organization and what is our next action?'],
+  ['models','Models & Projects','Who publishes or serves each model, and how do we connect?'],
+  ['research','Research','Landscape imports, ranking signals and sources.'],
+];
+
+function overview(){
+  const {acc} = data();
+  const segs = SEGORDER.map(id=>({id,n:acc.filter(a=>a.segment_proposed===id).length}));
+  const verts=[...new Set(acc.map(a=>a.vertical_proposed).filter(Boolean))];
+  const cell=(seg,v)=>{const n=acc.filter(a=>a.segment_proposed===seg&&a.vertical_proposed===v).length;return `<td>${n||'<span class="unk">·</span>'}</td>`};
+  return `<h1>Overview</h1><p class="sub">Counts describe the account register, not the market. Landscape-sourced accounts are counted separately once imported.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="n">${acc.length}</div><div class="l">Accounts · researched</div></div>
+    <div class="kpi"><div class="n na">Pending import</div><div class="l">Accounts · MAD and LF AI &amp; Data</div></div>
+    <div class="kpi"><div class="n">${acc.filter(a=>a.status!=='Unset').length}</div><div class="l">Relationship status set</div></div>
+    <div class="kpi"><div class="n na">Not computed</div><div class="l">Ranked · rubric v1</div></div>
+    <div class="kpi"><div class="n">${acc.filter(a=>a.owner).length}</div><div class="l">Owned accounts</div></div>
+    <div class="kpi"><div class="n">${acc.length}</div><div class="l">Next actions open</div></div>
+  </div>
+  <h2>A · Value chain (register coverage)</h2>
+  <div class="chain">${segs.map(s=>`<button data-seg="${s.id}"><div class="n">${s.n}</div><div class="s">${esc(SEG[s.id].name)}</div></button>`).join('')}
+    <div class="cross"><span class="pill prod">SGLang · ${acc.filter(a=>a.products.includes('SGLang')).length} accounts</span><span class="pill prod">Miles · ${acc.filter(a=>a.products.includes('Miles')).length} accounts</span><span class="note">Select a segment to filter Accounts.</span></div></div>
+  <h2>B · Segment × vertical coverage</h2>
+  <div class="wrap"><table class="matrix"><thead><tr><th>Segment</th><th>No vertical</th>${verts.map(v=>`<th>${esc(v)}</th>`).join('')}</tr></thead><tbody>
+  ${SEGORDER.map(seg=>`<tr><td>${esc(SEG[seg].name)}</td>${cell(seg,null)}${verts.map(v=>cell(seg,v)).join('')}</tr>`).join('')}</tbody></table></div>
+  <div class="note">· = no accounts in the register, not zero demand.</div>
+  <h2>C · Scale × Proximity per segment (rubric v1)</h2>
+  <div class="empty"><b>Ranks not computed yet</b>Each segment gets a 2×2 of Scale (public volume proxy) against Proximity (distance to the SGLang / Miles stack), with counts per quadrant and the snapshot date. Populated after the first Hugging Face and GitHub snapshots.</div>
+  <h2>D · Next actions</h2>
+  <div class="wrap"><table><thead><tr><th>Account</th><th>Next action</th><th>Owner</th><th>Priority</th><th>Updated</th></tr></thead><tbody>
+  ${acc.slice(0,8).map(a=>`<tr class="row" data-acct="${a.account_id}"><td>${esc(a.name)}</td><td>${esc(a.next_action)}</td><td>${unk(a.owner,'Unassigned')}</td><td>${unk(a.priority,'Unset')}</td><td>${esc(a.last_reviewed)}</td></tr>`).join('')}
+  </tbody></table></div><div class="note">Showing 8 of ${acc.length}. Sort by Scale rank once computed.</div>`;
+}
+
+function accounts(){
+  const {acc} = data(); const f=S.f;
+  const rows=acc.filter(a=>(!f.seg||a.segment_proposed===f.seg)&&(!f.prod||a.products.includes(f.prod))&&(!f.q||a.name.toLowerCase().includes(f.q.toLowerCase())));
+  return `<h1>Accounts</h1><p class="sub">${rows.length} of ${acc.length} organizations, categorized by segment. Relationship status is set by the team; ranks come from rubric v1 snapshots.</p>
+  <div class="filters">
+    <input type="text" id="fq" placeholder="Filter by name" value="${esc(f.q||'')}">
+    <select id="fseg"><option value="">All segments</option>${SEGORDER.map(s=>`<option value="${s}" ${f.seg===s?'selected':''}>${esc(SEG[s].name)}</option>`).join('')}</select>
+    <select id="fprod"><option value="">Any product</option>${['SGLang','Miles'].map(p=>`<option ${f.prod===p?'selected':''}>${p}</option>`).join('')}</select>
+    <select disabled><option>Origin: Researched · MAD · LF AI (after import)</option></select>
+    <select disabled><option>Status: any</option></select>
+    <select disabled><option>Sort: Scale rank (not computed)</option></select>
+  </div>
+  <div class="wrap"><table><thead><tr><th>Account</th><th>Origin</th><th>Segment</th><th>Vertical</th><th>Products</th><th>Relationship status</th><th>Scale rank</th><th>Proximity rank</th><th>Owner</th><th>Next action</th></tr></thead><tbody>
+  ${rows.map(a=>`<tr class="row" data-acct="${a.account_id}"><td><b>${esc(a.name)}</b>${a.business_unit?`<div class="note">BU: ${esc(a.business_unit)}</div>`:''}</td><td><span class="pill na">${a.origin}</span></td><td>${esc(SEG[a.segment_proposed]?.name)}</td><td>${unk(a.vertical_proposed,'—')}</td><td>${prods(a)}</td><td>${unk(a.status,'Unset')}</td><td>${rank()}</td><td>${rank()}</td><td>${unk(a.owner,'Unassigned')}</td><td class="note">${esc(a.next_action)}</td></tr>`).join('')}
+  </tbody></table></div>`;
+}
+
+function account(id){
+  const {acc}=data(); const a=acc.find(x=>x.account_id===id); if(!a) return `<div class="empty"><b>Account not found</b></div>`;
+  const tabs=['Overview','Models & Stack','Ranking','People','Activity'];
+  const parent = a.name==='LinkedIn'?'Microsoft (corporate parent, separate operating account)': a.business_unit?`Alibaba (parent) → ${a.business_unit} business unit`:null;
+  const body = [
+    ()=>`<div class="grid2"><div><dl>
+      <dt>Identity</dt><dd>${esc(a.name)} · ${esc(SEG[a.segment_proposed]?.name)}${a.vertical_proposed?' · '+esc(a.vertical_proposed):''}</dd>
+      ${parent?`<dt>Hierarchy</dt><dd>${esc(parent)}</dd>`:''}
+      <dt>Products</dt><dd>${prods(a)}</dd>
+      <dt>Relationship status</dt><dd>${unk(a.status,'Unset')} <span class="note">Set by the team: Customer · Partner · Open-source user · Prospect · None</span></dd>
+      <dt>Owner</dt><dd>${unk(a.owner,'Unassigned')}</dd>
+      <dt>Priority</dt><dd>${unk(a.priority,'Unset')}</dd>
+      <dt>Next action</dt><dd>${esc(a.next_action)}</dd>
+      <dt>Segment fit hypothesis</dt><dd>${esc(SEG[a.segment_proposed]?.fit_hypothesis)}</dd>
+      </dl>
+      <h2>Research notes</h2>${a.notes.map(n=>`<div class="rn"><div>${esc(n.text)}</div><div class="m">${n.source?.url?`<a href="${esc(n.source.url)}" target="_blank" rel="noopener">${esc(n.source.title)}</a>`:esc(n.source?.title||n.source_id)} · ${esc(n.date)}</div></div>`).join('')}</div>
+      <div class="panel"><h3>Actions</h3><button class="act primary" disabled>Set relationship status</button><button class="act" disabled>Log activity</button><button class="act" disabled>Add research note</button><button class="act" disabled>Add contact</button><button class="act" disabled>Assign owner</button><div class="note">Disabled in prototype. These write CRM fields that imports never overwrite.</div></div></div>`,
+    ()=>`<dl><dt>Models published / used</dt><dd><span class="unk">None linked yet. Filled by the Hugging Face snapshot.</span></dd><dt>Serving providers</dt><dd><span class="unk">Pending HF import</span></dd><dt>GitHub organization</dt><dd><span class="unk">Pending GitHub snapshot</span></dd><dt>Hardware / cloud</dt><dd><span class="unk">Unknown</span></dd><dt>Deployment mode</dt><dd><span class="unk">Unknown</span></dd></dl>`,
+    ()=>`<dl><dt>Scale rank</dt><dd><span class="unk">Not computed</span> · within ${esc(SEG[a.segment_proposed]?.name)}</dd><dt>Scale inputs</dt><dd class="note">${esc(SCALE_INPUTS[a.segment_proposed]||'')}</dd><dt>Proximity rank</dt><dd><span class="unk">Not computed</span></dd><dt>Proximity inputs</dt><dd class="note">Employees contributing to sgl-project / Miles · models on SGLang supported list · serves SGLang-supported models (HF) · co-authored posts and day-0 announcements</dd><dt>Snapshot</dt><dd><span class="unk">None yet</span></dd></dl>`,
+    ()=>`<div class="empty"><b>No contacts</b>Technical champion, budget owner, procurement and introduction route. Add from the actions panel.</div>`,
+    ()=>`<div class="empty"><b>No activity logged</b>Calls, meetings, emails and tasks appear here in order, with owner and due date.</div>`
+  ];
+  return `<button class="back" id="back">← Accounts</button><h1>${esc(a.name)}</h1>
+  <div class="badges"><span class="pill na">${esc(SEG[a.segment_proposed]?.name)}</span><span class="pill na">${a.origin}</span><span class="pill na">Status: ${esc(a.status)}</span><span class="pill na">Owner: ${a.owner?esc(a.owner):'unassigned'}</span></div>
+  <div class="tabs">${tabs.map((t,i)=>`<button class="${i===S.tab?'on':''}" data-tab="${i}">${t}</button>`).join('')}</div>${body[S.tab]()}`;
+}
+
+function models(){
+  const {acc}=data();
+  const compat=acc.filter(a=>a.notes.some(n=>n.source_id==='S6'));
+  return `<h1>Models &amp; Projects</h1><p class="sub">Model publishers and serving providers from the Hugging Face snapshot; projects from GitHub and the LF landscape.</p>
+  <div class="tabs"><button class="on">Models</button><button>Projects</button><button>Serving-provider mappings</button></div>
+  <div class="wrap"><table><thead><tr><th>Model</th><th>Publisher account</th><th>Supported engines</th><th>Serving providers (HF)</th><th>30-day downloads</th><th>Snapshot</th></tr></thead><tbody>
+  ${compat.map(a=>`<tr class="row" data-acct="${a.account_id}"><td><span class="unk">Model IDs pending HF snapshot</span></td><td>${esc(a.name)}</td><td><span class="pill prod">SGLang</span></td><td><span class="unk">Pending</span></td><td><span class="unk">Pending</span></td><td><span class="unk">None yet</span></td></tr>`).join('')}
+  </tbody></table></div>
+  <h2>Projects</h2><div class="wrap"><table><thead><tr><th>Project</th><th>Role</th><th>Maintainer org</th><th>Linked accounts</th></tr></thead><tbody>
+  <tr><td>SGLang</td><td>RadixArk product</td><td>sgl-project</td><td>${acc.filter(a=>a.products.includes('SGLang')).length}</td></tr>
+  <tr><td>Miles</td><td>RadixArk product</td><td>radixark</td><td>${acc.filter(a=>a.products.includes('Miles')).length}</td></tr>
+  <tr><td>SGLang-Omni</td><td>RadixArk product</td><td>sgl-project</td><td>1</td></tr>
+  <tr><td colspan="4" class="note">LF AI &amp; Data projects (Kubeflow, ONNX, Milvus, …) appear here after the landscape import, each linked to its backing organization's account.</td></tr></tbody></table></div>`;
+}
+
+function research(){
+  const {notes,sources}=data();
+  const tabs=['Landscape imports','Signals','Sources'];
+  const body=[
+    ()=>`<div class="wrap"><table><thead><tr><th>Run</th><th>Source</th><th>Snapshot</th><th>Added</th><th>Changed</th><th>Removed</th><th>Review</th></tr></thead><tbody>
+      <tr><td>—</td><td>FirstMark MAD</td><td><span class="unk">Not run · licence check pending</span></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>—</td><td>LF AI &amp; Data landscape</td><td><span class="unk">Not run</span></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Seed</td><td>Researched register</td><td>2026-10-18</td><td>41</td><td>0</td><td>0</td><td><span class="pill ok">Loaded</span></td></tr></tbody></table></div>
+      <div class="note">Each run freezes the source file, resolves names against existing accounts (exact alias, domain, GitHub org, then name), and lists added / changed / removed accounts for the team to accept or ignore. Landscape membership never sets a relationship status.</div>`,
+    ()=>`<div class="wrap"><table><thead><tr><th>Signal</th><th>Feeds</th><th>Source</th><th>Last snapshot</th><th>Accounts covered</th></tr></thead><tbody>
+      <tr><td>Model downloads, releases, providers</td><td>Scale (model developers), Proximity</td><td>Hugging Face API</td><td><span class="unk">None</span></td><td>—</td></tr>
+      <tr><td>Org repos, contributors to sgl-project / Miles</td><td>Proximity, Scale (data/RL)</td><td>GitHub API</td><td><span class="unk">None</span></td><td>—</td></tr>
+      <tr><td>Endpoints, pricing, throughput</td><td>Scale (clouds, providers)</td><td>Artificial Analysis</td><td><span class="unk">None</span></td><td>—</td></tr>
+      <tr><td>SGLang supported models, time-to-support</td><td>Proximity</td><td>sglang.io/models</td><td><span class="unk">None</span></td><td>—</td></tr>
+      <tr><td>Open ML / infra roles</td><td>Scale (applications, enterprise)</td><td>Job boards</td><td><span class="unk">None</span></td><td>—</td></tr></tbody></table></div>`,
+    ()=>`<div class="wrap"><table><thead><tr><th>ID</th><th>Title</th><th>Type</th><th>Published</th><th>Notes using it</th></tr></thead><tbody>${Object.entries(sources).map(([k,s])=>`<tr><td class="note">${k}</td><td>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`:esc(s.title)}</td><td class="note">${esc(s.type.replace(/_/g,' '))}</td><td class="note">${esc(s.published||s.date||'—')}</td><td>${notes.filter(n=>n.source_id===k).length}</td></tr>`).join('')}</tbody></table></div>`
+  ];
+  return `<h1>Research</h1><p class="sub">Where accounts, ranks and notes come from, and what changed on each run.</p>
+  <div class="tabs">${tabs.map((t,i)=>`<button class="${i===S.rtab?'on':''}" data-rtab="${i}">${t}</button>`).join('')}</div>${body[S.rtab]()}`;
+}
+
+function render(){
+  document.getElementById('nav').innerHTML=`<div class="sect">Views</div>`+VIEWS.map(([k,l,q])=>`<button class="${S.view===k?'on':''}" data-view="${k}">${l}<span class="q">${q}</span></button>`).join('');
+  const m=document.getElementById('main');
+  m.innerHTML=({overview,accounts,models,research}[S.view]||overview)();
+  if(S.view==='accounts'&&S.acct) m.innerHTML=account(S.acct);
+  window.scrollTo(0,0);
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-view],[data-acct],[data-tab],[data-rtab],[data-seg],#back');
+  if(!t) return;
+  if(t.dataset.view){S.view=t.dataset.view;S.acct=null;S.tab=0;}
+  else if(t.dataset.acct){S.view='accounts';S.acct=t.dataset.acct;S.tab=0;}
+  else if(t.dataset.tab!=null){S.tab=+t.dataset.tab;}
+  else if(t.dataset.rtab!=null){S.rtab=+t.dataset.rtab;}
+  else if(t.dataset.seg){S.view='accounts';S.acct=null;S.f={seg:t.dataset.seg};}
+  else if(t.id==='back'){S.acct=null;}
+  render();
+});
+document.addEventListener('input',e=>{
+  if(e.target.id==='fq'){S.f.q=e.target.value;render();const i=document.getElementById('fq');i.focus();i.setSelectionRange(99,99);}
+  if(e.target.id==='q'){ const q=e.target.value.trim().toLowerCase(); const box=document.getElementById('qres'); if(!q){box.hidden=true;return;}
+    const {acc,notes,sources}=data(); const hits=[];
+    acc.filter(a=>a.name.toLowerCase().includes(q)).forEach(a=>hits.push(['Account',a.name,a.account_id]));
+    notes.filter(n=>n.text.toLowerCase().includes(q)).slice(0,6).forEach(n=>hits.push(['Note',n.text,n.account_id]));
+    Object.values(sources).filter(s=>s.title.toLowerCase().includes(q)).forEach(s=>hits.push(['Source',s.title,null]));
+    box.innerHTML=hits.length?hits.map(h=>`<button ${h[2]?`data-acct="${h[2]}"`:''}><span class="pill na">${h[0]}</span><span>${esc(h[1])}</span></button>`).join(''):`<button disabled><span class="note">No results</span></button>`; box.hidden=false; }
+});
+document.addEventListener('change',e=>{ if(e.target.id==='fseg')S.f.seg=e.target.value; if(e.target.id==='fprod')S.f.prod=e.target.value; if(/^f(seg|prod)$/.test(e.target.id))render(); });
+document.addEventListener('click',e=>{ if(!e.target.closest('.search')) document.getElementById('qres').hidden=true; },true);
+render();
+</script>

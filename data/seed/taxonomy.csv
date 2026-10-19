@@ -1,0 +1,14 @@
+source,category_prefix,segment,treat_as
+lfai,LF AI & Data Member Company,unclassified,account
+lfai,Hosting Companies,unclassified,account
+lfai,,,project
+mad,Infrastructure,platform,account
+mad,Analytics,platform,account
+mad,Machine Learning & Artificial Intelligence,models,account
+mad,Machine Learning & AI,models,account
+mad,Applications - Enterprise,applications,account
+mad,Applications - Industry,applications,account
+mad,Open Source,unclassified,project
+mad,Data Sources & APIs,data,account
+mad,Data Sources,data,account
+mad,,unclassified,account

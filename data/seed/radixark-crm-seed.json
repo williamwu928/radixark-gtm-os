@@ -1,0 +1,1639 @@
+{
+  "title": "RadixArk demo CRM research and structure",
+  "as_of": "2026-10-18",
+  "scope": "Publicly documented seed register plus private interview leads; not an exhaustive customer roster or live CRM",
+  "rules": [
+    "Unknown payment status is not zero revenue or a free account.",
+    "No opportunities, contacts, pipeline amounts, outreach or ownership are invented.",
+    "Compatibility, event participation and investment do not prove customer status.",
+    "Public export must omit private evidence and private-only derived account fields.",
+    "Segment and vertical mappings are proposed classifications; validate ambiguous firms.",
+    "Shared parent accounts use business-unit records for separate opportunities."
+  ],
+  "sources": {
+    "S1": {
+      "title": "RadixArk launch announcement",
+      "url": "https://www.radixark.com/blog/radixark-launches-100m-seed",
+      "type": "public_company_statement",
+      "published": "2026-05-05"
+    },
+    "S2": {
+      "title": "Miles user testimonials",
+      "url": "https://miles.radixark.com/",
+      "type": "public_product_statement"
+    },
+    "S3": {
+      "title": "DigitalOcean RadixArk case study",
+      "url": "https://www.digitalocean.com/customers/radixark",
+      "type": "public_counterparty_statement"
+    },
+    "S4": {
+      "title": "Step 5 collaboration",
+      "url": "https://www.sglang.io/blog/step-5-preview-day0-support",
+      "type": "public_project_statement",
+      "published": "2026-10-14"
+    },
+    "S5": {
+      "title": "SGLang events",
+      "url": "https://www.sglang.io/events",
+      "type": "public_event_listing"
+    },
+    "S6": {
+      "title": "Supported models",
+      "url": "https://www.sglang.io/models",
+      "type": "public_compatibility_documentation"
+    },
+    "S7": {
+      "title": "Miles integrations",
+      "url": "https://miles.radixark.com/",
+      "type": "public_integration_documentation"
+    },
+    "S8": {
+      "title": "Google Vertex EAGLE-3 collaboration",
+      "url": "https://www.lmsys.org/blog/2025-12-01-eagle3-vertex/",
+      "type": "public_project_statement"
+    },
+    "S9": {
+      "title": "Oracle OME collaboration",
+      "url": "https://www.lmsys.org/blog/2025-07-08-ome/",
+      "type": "public_project_statement"
+    },
+    "S10": {
+      "title": "Kimi K3 coauthored article",
+      "url": "https://www.sglang.io/blog/kimi-k3-day0-support",
+      "type": "public_project_statement"
+    },
+    "S11": {
+      "title": "Meta coauthored article",
+      "url": "https://www.sglang.io/blog/breakable-cuda-graph",
+      "type": "public_project_statement"
+    },
+    "S12": {
+      "title": "Fish Audio day-0 serving",
+      "url": "https://www.sglang.io/blog/spg-topology",
+      "type": "public_project_statement"
+    },
+    "CALL": {
+      "title": "User-supplied corrected interview reconstruction",
+      "type": "private_call_reconstruction",
+      "date": null,
+      "sharing": "private; omit from public exports",
+      "caveat": "Condensed reconstruction, not verbatim; no inference of signed contract"
+    }
+  },
+  "segments": [
+    {
+      "id": "hardware",
+      "name": "Hardware and accelerators",
+      "fit_hypothesis": "Hardware enablement; performance optimization"
+    },
+    {
+      "id": "cloud",
+      "name": "Hyperscalers and GPU clouds",
+      "fit_hypothesis": "Serving stack; deployment; channel partnerships"
+    },
+    {
+      "id": "models",
+      "name": "Model developers and AI labs",
+      "fit_hypothesis": "Inference launch support; Miles post-training"
+    },
+    {
+      "id": "data",
+      "name": "Data, RL environments and sandboxes",
+      "fit_hypothesis": "Miles integrations; joint solution discovery"
+    },
+    {
+      "id": "platform",
+      "name": "Enterprise data and AI platforms",
+      "fit_hypothesis": "Data-to-post-training integration discovery"
+    },
+    {
+      "id": "applications",
+      "name": "AI application companies",
+      "fit_hypothesis": "Production inference; task-specific post-training"
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise model operators",
+      "fit_hypothesis": "Private deployment; ownership; enterprise support"
+    }
+  ],
+  "schema": {
+    "accounts": [
+      "account_id",
+      "name",
+      "parent_account_id",
+      "business_unit",
+      "segment_proposed",
+      "vertical_proposed",
+      "relationship_tags",
+      "products",
+      "commercial_status",
+      "owner",
+      "region",
+      "priority",
+      "next_action",
+      "last_reviewed"
+    ],
+    "evidence": [
+      "evidence_id",
+      "account_id",
+      "source_id",
+      "claim",
+      "claim_type",
+      "visibility",
+      "verification",
+      "reviewed"
+    ],
+    "contacts": [
+      "contact_id",
+      "account_id",
+      "name",
+      "job_title",
+      "buying_role",
+      "relationship_owner",
+      "contact_source",
+      "last_verified"
+    ],
+    "opportunities": [
+      "opportunity_id",
+      "account_id",
+      "workload",
+      "product",
+      "paid_offer",
+      "stage",
+      "technical_champion",
+      "budget_owner",
+      "budget_confirmed",
+      "acceptance_criteria",
+      "baseline",
+      "target",
+      "owner",
+      "next_step",
+      "next_step_date",
+      "amount",
+      "currency",
+      "pricing_unit",
+      "term_months",
+      "expected_close",
+      "stage_evidence",
+      "lost_reason"
+    ],
+    "deployments": [
+      "deployment_id",
+      "opportunity_id",
+      "account_id",
+      "models",
+      "hardware",
+      "cloud",
+      "deployment_mode",
+      "traffic_profile",
+      "latency_slo",
+      "baseline_cost_per_successful_task",
+      "target_cost_per_successful_task",
+      "task_success_rate",
+      "human_intervention_rate",
+      "implementation_hours",
+      "ongoing_support_hours_per_month",
+      "monthly_compute_cost",
+      "monthly_delivery_cost",
+      "monthly_recurring_revenue",
+      "reuse_candidates",
+      "custom_work_scope",
+      "acceptance_status"
+    ],
+    "activities": [
+      "activity_id",
+      "account_id",
+      "opportunity_id",
+      "activity_type",
+      "date",
+      "owner",
+      "summary",
+      "next_action",
+      "due_date",
+      "visibility"
+    ],
+    "partnerships": [
+      "partnership_id",
+      "account_id",
+      "type",
+      "status",
+      "joint_value",
+      "customer_direction",
+      "early_access_scope",
+      "commercial_terms",
+      "attribution_method",
+      "sourced_opportunity_ids",
+      "technical_owner",
+      "commercial_owner",
+      "next_milestone"
+    ]
+  },
+  "accounts": [
+    {
+      "account_id": "ACC-001",
+      "name": "Google",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user",
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-002",
+      "name": "Microsoft",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-003",
+      "name": "NVIDIA",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "hardware",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user",
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "Miles",
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-004",
+      "name": "Oracle",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user",
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-005",
+      "name": "AMD",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "hardware",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user",
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-006",
+      "name": "LinkedIn",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "applications",
+      "vertical_proposed": "Search and recommendation",
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-007",
+      "name": "xAI",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-008",
+      "name": "Thinking Machines Lab",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-009",
+      "name": "humans&",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles",
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-010",
+      "name": "Periodic Labs",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": "Scientific AI",
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-011",
+      "name": "Modal",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-012",
+      "name": "Eigent.AI",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "applications",
+      "vertical_proposed": "Agent automation",
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-013",
+      "name": "Decagon",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "applications",
+      "vertical_proposed": "Customer support",
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-014",
+      "name": "IBM",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "platform",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-015",
+      "name": "Osmosis",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-016",
+      "name": "Nebius",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented product user"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-017",
+      "name": "DigitalOcean",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented supplier / collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-018",
+      "name": "StepFun",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang",
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-019",
+      "name": "Alibaba",
+      "parent_account_id": null,
+      "business_unit": "Bailian",
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang",
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-020",
+      "name": "Moonshot AI",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-021",
+      "name": "Meta",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented technical collaborator"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-022",
+      "name": "Fish Audio",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": "Voice and audio",
+      "relationship_tags": [
+        "Documented serving integration"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-023",
+      "name": "Intel",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "hardware",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Interview-reported collaboration"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-024",
+      "name": "AWS",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Interview-reported collaboration"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-025",
+      "name": "Mercor",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "data",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Interview-reported collaboration"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-026",
+      "name": "Reflection AI",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Interview-reported discussion"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-027",
+      "name": "Databricks",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "platform",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Exploratory ecosystem target"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-028",
+      "name": "Snowflake",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "platform",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Exploratory ecosystem target"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-029",
+      "name": "Cohere",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Exploratory ecosystem target"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-030",
+      "name": "D. E. Shaw",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "enterprise",
+      "vertical_proposed": "Hedge funds",
+      "relationship_tags": [
+        "User-proposed prospect"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-031",
+      "name": "Two Sigma",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "enterprise",
+      "vertical_proposed": "Hedge funds",
+      "relationship_tags": [
+        "User-proposed prospect"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-032",
+      "name": "Bridgewater",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "enterprise",
+      "vertical_proposed": "Hedge funds",
+      "relationship_tags": [
+        "User-proposed prospect"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-033",
+      "name": "Ramp",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "enterprise",
+      "vertical_proposed": "Fintech",
+      "relationship_tags": [
+        "User-proposed prospect"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-034",
+      "name": "Crusoe",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "cloud",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented community event connection"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-035",
+      "name": "Mistral AI",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented community event connection"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-036",
+      "name": "Hugging Face",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "platform",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented community event connection"
+      ],
+      "products": [],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-037",
+      "name": "DeepSeek",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Model compatibility only"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-038",
+      "name": "MiniMax",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Model compatibility only"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-039",
+      "name": "Z.ai",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "models",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Model compatibility only"
+      ],
+      "products": [
+        "SGLang"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-040",
+      "name": "Daytona",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "data",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented integration only"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    },
+    {
+      "account_id": "ACC-041",
+      "name": "E2B",
+      "parent_account_id": null,
+      "business_unit": null,
+      "segment_proposed": "data",
+      "vertical_proposed": null,
+      "relationship_tags": [
+        "Documented integration only"
+      ],
+      "products": [
+        "Miles"
+      ],
+      "commercial_status": "Unknown",
+      "commercial_status_basis": null,
+      "engagement_stage": null,
+      "owner": null,
+      "region": null,
+      "priority": null,
+      "account_value": null,
+      "next_action": "Validate relationship scope, workload and commercial status",
+      "last_reviewed": "2026-10-18"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "EV-001",
+      "account_id": "ACC-001",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-002",
+      "account_id": "ACC-002",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-003",
+      "account_id": "ACC-003",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter; investor listed separately in announcement.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-004",
+      "account_id": "ACC-004",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-005",
+      "account_id": "ACC-005",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter; investor listed separately in announcement.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-006",
+      "account_id": "ACC-006",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-007",
+      "account_id": "ACC-007",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-008",
+      "account_id": "ACC-008",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-009",
+      "account_id": "ACC-009",
+      "source_id": "S1",
+      "claim": "Named SGLang adopter.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-010",
+      "account_id": "ACC-010",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-011",
+      "account_id": "ACC-011",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-012",
+      "account_id": "ACC-012",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-013",
+      "account_id": "ACC-013",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-014",
+      "account_id": "ACC-014",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-015",
+      "account_id": "ACC-015",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-016",
+      "account_id": "ACC-016",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-017",
+      "account_id": "ACC-017",
+      "source_id": "S3",
+      "claim": "Provides compute to RadixArk and describes joint production validation. Evidence direction: RadixArk is DigitalOcean customer.",
+      "claim_type": "Documented supplier / collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-018",
+      "account_id": "ACC-018",
+      "source_id": "S4",
+      "claim": "Named collaborator on Step 5 inference and RL support.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-019",
+      "account_id": "ACC-019",
+      "source_id": "S4",
+      "claim": "Alibaba Bailian named in Step 5 collaboration.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-020",
+      "account_id": "ACC-020",
+      "source_id": "S10",
+      "claim": "Coauthor on Kimi K3 serving article.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-021",
+      "account_id": "ACC-021",
+      "source_id": "S11",
+      "claim": "Coauthor on Breakable CUDA Graph article.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-022",
+      "account_id": "ACC-022",
+      "source_id": "S12",
+      "claim": "Drama 3 served by SGLang-Omni from launch.",
+      "claim_type": "Documented serving integration",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-023",
+      "account_id": "ACC-023",
+      "source_id": "CALL",
+      "claim": "Interviewer named chipmaker engineering relationships; exact scope unverified.",
+      "claim_type": "Interview-reported collaboration",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-024",
+      "account_id": "ACC-024",
+      "source_id": "CALL",
+      "claim": "Interviewer described hyperscaler work; commercial terms undisclosed.",
+      "claim_type": "Interview-reported collaboration",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-025",
+      "account_id": "ACC-025",
+      "source_id": "CALL",
+      "claim": "Interviewer said RadixArk already works with Mercor; scope unconfirmed.",
+      "claim_type": "Interview-reported collaboration",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-026",
+      "account_id": "ACC-026",
+      "source_id": "CALL",
+      "claim": "Interviewer described Reflection GTM discussions; company identity requires confirmation.",
+      "claim_type": "Interview-reported discussion",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-027",
+      "account_id": "ACC-027",
+      "source_id": "CALL",
+      "claim": "Mentioned during exploration of enterprise customization/data workflows; no formal partnership established.",
+      "claim_type": "Exploratory ecosystem target",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-028",
+      "account_id": "ACC-028",
+      "source_id": "CALL",
+      "claim": "Mentioned during exploration of enterprise customization/data workflows; no formal partnership established.",
+      "claim_type": "Exploratory ecosystem target",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-029",
+      "account_id": "ACC-029",
+      "source_id": "CALL",
+      "claim": "Mentioned during exploration of enterprise customization/data workflows; no formal partnership established.",
+      "claim_type": "Exploratory ecosystem target",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-030",
+      "account_id": "ACC-030",
+      "source_id": "CALL",
+      "claim": "User suggested potential relationship access; no RadixArk outreach, evaluation or contract confirmed.",
+      "claim_type": "User-proposed prospect",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-031",
+      "account_id": "ACC-031",
+      "source_id": "CALL",
+      "claim": "User suggested potential relationship access; no RadixArk outreach, evaluation or contract confirmed.",
+      "claim_type": "User-proposed prospect",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-032",
+      "account_id": "ACC-032",
+      "source_id": "CALL",
+      "claim": "User suggested potential relationship access; no RadixArk outreach, evaluation or contract confirmed.",
+      "claim_type": "User-proposed prospect",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-033",
+      "account_id": "ACC-033",
+      "source_id": "CALL",
+      "claim": "User suggested potential relationship access; no RadixArk outreach, evaluation or contract confirmed.",
+      "claim_type": "User-proposed prospect",
+      "visibility": "Private",
+      "verification": "Interview-reported; requires confirmation",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-034",
+      "account_id": "ACC-034",
+      "source_id": "S5",
+      "claim": "Named in past SGLang event listing; not evidence of product adoption or commercial partnership.",
+      "claim_type": "Documented community event connection",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-035",
+      "account_id": "ACC-035",
+      "source_id": "S5",
+      "claim": "Named in past SGLang event listing; not evidence of product adoption or commercial partnership.",
+      "claim_type": "Documented community event connection",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-036",
+      "account_id": "ACC-036",
+      "source_id": "S5",
+      "claim": "Named in past SGLang event listing; not evidence of product adoption or commercial partnership.",
+      "claim_type": "Documented community event connection",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-037",
+      "account_id": "ACC-037",
+      "source_id": "S6",
+      "claim": "Models supported; does not establish company product use, partnership or payment.",
+      "claim_type": "Model compatibility only",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-038",
+      "account_id": "ACC-038",
+      "source_id": "S6",
+      "claim": "Models supported; does not establish company product use, partnership or payment.",
+      "claim_type": "Model compatibility only",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-039",
+      "account_id": "ACC-039",
+      "source_id": "S6",
+      "claim": "Models supported; does not establish company product use, partnership or payment.",
+      "claim_type": "Model compatibility only",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-040",
+      "account_id": "ACC-040",
+      "source_id": "S7",
+      "claim": "Sandbox integration listed; does not establish a commercial relationship.",
+      "claim_type": "Documented integration only",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-041",
+      "account_id": "ACC-041",
+      "source_id": "S7",
+      "claim": "Sandbox integration listed; does not establish a commercial relationship.",
+      "claim_type": "Documented integration only",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-042",
+      "account_id": "ACC-009",
+      "source_id": "S2",
+      "claim": "Named Miles testimonial provider.",
+      "claim_type": "Documented product user",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-043",
+      "account_id": "ACC-001",
+      "source_id": "S8",
+      "claim": "Vertex AI production collaboration with SGLang team.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-044",
+      "account_id": "ACC-004",
+      "source_id": "S9",
+      "claim": "OCI team collaborated on OME production infrastructure.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-045",
+      "account_id": "ACC-005",
+      "source_id": "S3",
+      "claim": "Joint engineering described in DigitalOcean case study.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    },
+    {
+      "evidence_id": "EV-046",
+      "account_id": "ACC-003",
+      "source_id": "S4",
+      "claim": "Named in Step 5 collaboration.",
+      "claim_type": "Documented technical collaborator",
+      "visibility": "Public",
+      "verification": "Publicly documented; commercial terms unknown",
+      "reviewed": "2026-10-18"
+    }
+  ],
+  "contacts": [],
+  "opportunities": [],
+  "deployments": [],
+  "activities": [],
+  "partnerships": []
+}
