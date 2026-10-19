@@ -1,0 +1,1258 @@
+SUBS
+0	Infrastructure - Integrate & Operate / ETL/ELT/Data Transformation
+1	Infrastructure - Integrate & Operate / Unstructured & Vector ETL
+2	Infrastructure - Integrate & Operate / Data Integration
+3	Infrastructure - Integrate & Operate / Data Governance & Catalog
+4	Infrastructure - Integrate & Operate / Orchestration
+5	Infrastructure - Integrate & Operate / Data Quality & Observability
+6	Infrastructure - Integrate & Operate / Cloud Observability
+7	Infrastructure - Integrate & Operate / Privacy & Security
+8	Infrastructure - Integrate & Operate / Compute
+9	Data & AI Consulting / Data & AI Consulting
+10	Applications - Enterprise / Customer Experience & Support Agents
+11	Applications - Enterprise / Sales & Marketing AI (GTM)
+12	Applications - Enterprise / Automation & Operations (Agentic RPA)
+13	Applications - Enterprise / Human Capital & Talent
+14	Applications - Enterprise / Legal AI
+15	Applications - Enterprise / FinOps & Risk
+16	Applications - Horizontal / Code AI & Agents
+17	Applications - Horizontal / Text, Docs & Knowledge Agents
+18	Applications - Horizontal / Media Generation
+19	Applications - Horizontal / 3D / Animation / Gaming
+20	Applications - Horizontal / Audio & Voice Agents
+21	Applications - Industry / Healthcare & Life Sciences
+22	Applications - Industry / Finance
+23	Applications - Industry / Robotics, Autonomy & Industrial
+24	Applications - Industry / Aerospace, Defense & Govtech
+25	Infrastructure - Store & Stream / Storage
+26	Infrastructure - Store & Stream / Data Lakes/Lakehouses
+27	Infrastructure - Store & Stream / Data Warehouses
+28	Infrastructure - Store & Stream / Event Brokers & Messaging
+29	Infrastructure - Store & Stream / Stream Processing & Streaming ETL
+30	Infrastructure - Store & Stream / Relational & Distributed SQL
+31	Infrastructure - Store & Stream / NoSQL Databases
+32	Infrastructure - Store & Stream / Real-Time Analytics / HTAP
+33	Infrastructure - Store & Stream / Graph Databases
+34	Infrastructure - Store & Stream / Vector Databases
+35	Infrastructure - Store & Stream / GPU Databases
+36	Infrastructure - Store & Stream / Multi-Model Databases & Abstractions
+37	Analytics / BI & Analytics Platforms
+38	Analytics / Headless / Embedded BI & Semantic Layer
+39	Analytics / Experimentation & Causal
+40	Analytics / Product Analytics
+41	Machine Learning & Artificial Intelligence - Build / AI Developer Platforms
+42	Machine Learning & Artificial Intelligence - Build / Local / On-Device LLM Runtimes
+43	Machine Learning & Artificial Intelligence - Build / Agent Platforms
+44	Machine Learning & Artificial Intelligence - Build / Agent Infra / Tooling
+45	Machine Learning & Artificial Intelligence - Validate & Secure / AI Observability & Evaluation
+46	Machine Learning & Artificial Intelligence - Validate & Secure / AI Safety & Security
+47	Machine Learning & Artificial Intelligence - Validate & Secure / Routing, Prompt Management & Experimentation
+48	Machine Learning & Artificial Intelligence - Validate & Secure / AI & Agent Governance
+49	Machine Learning & Artificial Intelligence - Operate & Supply / MLOps
+50	Machine Learning & Artificial Intelligence - Operate & Supply / Data Generation & Labelling
+51	Machine Learning & Artificial Intelligence - Operate & Supply / Data Science
+52	Machine Learning & Artificial Intelligence - Operate & Supply / Enterprise AI Platforms
+53	Machine Learning & Artificial Intelligence - Modalities & Research / Speech & Voice AI
+54	Machine Learning & Artificial Intelligence - Modalities & Research / Computer Vision
+55	Machine Learning & Artificial Intelligence - Modalities & Research / AI R&D - Commercial
+56	Machine Learning & Artificial Intelligence - Modalities & Research / AI R&D - Nonprofit / Academic
+57	Machine Learning & Artificial Intelligence - Run & Deploy / GPU Cloud / Deployment Infra
+58	Machine Learning & Artificial Intelligence - Run & Deploy / Model Serving & Inference Runtimes
+59	Machine Learning & Artificial Intelligence - Run & Deploy / AI Hardware
+60	Machine Learning & Artificial Intelligence - Run & Deploy / Edge AI
+61	Data Sources & APIs / Data Marketplaces & Discovery
+62	Data Sources & APIs / Web Search & Crawl APIs
+63	Data Sources & APIs / Financial & Alternative Data
+64	Data Sources & APIs / Geospatial, Satellite & Location
+65	Data Sources & APIs / Company / People / Entity Enrichment
+ROWS
+Matillion	United Kingdom	matillion.com	0
+Airbyte	United States	airbyte.com	0
+Estuary	United States	estuary.dev	0
+dbt Labs	United States	getdbt.com	0
+Talend	United States	talend.com	0
+Fivetran	United States	fivetran.com	0
+Azure Data Factory	United States	azure.microsoft.com/en-us/products/data-factory	0
+Prophecy	United States	prophecy.io	0
+Meltano	United States	meltano.com	0
+Google Cloud Data Fusion	United States	cloud.google.com/data-fusion	0
+Hevo Data	United States	hevodata.com	0
+AWS Glue	United States	aws.amazon.com/glue	0
+SAP Data Intelligence	Germany	sap.com/products/data-cloud/data-intelligence.html	0
+Informatica	United States	informatica.com	0
+SnapLogic	United States	snaplogic.com	0
+Databricks Workflows	United States	docs.databricks.com/aws/en/jobs	0
+IBM DataStage	United States	ibm.com/products/datastage	0
+Oracle Data Integration	United States	oracle.com/middleware/technologies/data-integration.html	0
+Azure Form Recognizer	United States	azure.microsoft.com/en-us/products/ai-services/ai-document-intelligence	1
+LlamaIndex LlamaParse	United States	llamaindex.ai/llamaparse	1
+Superlinked	United States	superlinked.com	1
+Tensorlake	United States	tensorlake.ai	1
+Vectorize	United States	vectorize.io	1
+Unstructured	United States	unstructured.io	1
+Reducto	United States	reducto.ai	1
+Langchain Text Splitters	United States	python.langchain.com/docs/concepts/text_splitters	1
+Gretel	United States	gretel.ai	1
+AWS Textract	United States	aws.amazon.com/textract	1
+Adobe PDF Extract	United States	developer.adobe.com/document-services/docs/overview/pdf-extract-api	1
+Towhee	Towhee is a framework that is dedicated to making neural data processing pipelines simple and fast.	github.com/towhee-io/towhee	1
+MostlyAI	Austria	mostly.ai	1
+HyperScience Hypercell	United States	hyperscience.ai/platform/hypercell	1
+Cleanlab	United States	cleanlab.ai	1
+Azure Data Factory	United States	azure.microsoft.com/en-us/products/data-factory	2
+Google Cloud BigQuery Data Transfer	United States	docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest	2
+Hightouch	United States	hightouch.com	2
+Rudderstack	United States	rudderstack.com	2
+Azure Form Recognizer	United States	azure.microsoft.com/en-us/products/ai-services/ai-document-intelligence	2
+Twilio Segment	United States	segment.com/twilio	2
+Denodo	United States	denodo.com/en	2
+Boomi	United States	boomi.com	2
+MuleSoft	United States	mulesoft.com	2
+tray.ai	United States	tray.ai	2
+Tealium	United States	tealium.com	2
+Qlik Talend	United States	qlik.com/us	2
+Celigo	United States	celigo.com	2
+n8n	Germany	n8n.io	2
+Make	Czech Republic	make.com/en	2
+AWS AppFlow	United States	aws.amazon.com/appflow	2
+Adobe Experience Platform	United States	business.adobe.com/products/experience-platform/adobe-experience-platform.html	2
+Treasure Data	United States	treasuredata.com	2
+Google Cloud Data Fusion	United States	cloud.google.com/data-fusion	2
+Oracle Unity	United States	oracle.com/cx/customer-data-platform	2
+SnapLogic	United States	snaplogic.com	2
+Salesforce - Data Cloud	United States	salesforce.com/data	2
+Census	United States	getcensus.com	2
+Cdata	United States	cdata.com	2
+Workato	United States	workato.com	2
+Informatica IPaaS	United States	informatica.com	2
+Microsoft Purview	United States	microsoft.com/en-us/security/business/microsoft-purview	3
+IBM Knowledge Catalog	United States	ibm.com/docs/en/software-hub/5.1.x	3
+Oracle Cloud Data Catalog	United States	oracle.com/big-data/data-catalog	3
+BigID	United States	bigid.com	3
+Immuta	United States	immuta.com	3
+Collibra	United States	collibra.com/us/en	3
+Alation	United States	alation.com	3
+Atlan	Singapore	atlan.com	3
+Informatica	United States	informatica.com	3
+Acryl Data	United States	datahub.com	3
+Ataccama	Canada	ataccama.com	3
+Solidatus	United Kingdom	solidatus.com	3
+Google Cloud Dataplex	United States	cloud.google.com/dataplex	3
+OpenMetadata	OpenMetadata is a unified metadata platform for data discovery, data observability, and data governance powered by a central metadata repository, in-depth column level lineage, and seamless team collaboration.	github.com/open-metadata/OpenMetadata	3
+AWS Glue Data Catalog	United States	docs.aws.amazon.com/prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-data-catalog.html	3
+SAP Data Intelligence	Germany	sap.com/products/data-cloud/data-intelligence.html	3
+Snowflake Horizon	United States	docs.snowflake.com/en/user-guide/snowflake-horizon	3
+Databricks Unity Catalog	United States	databricks.com/product/unity-catalog	3
+Apache Nifi	Apache NiFi	github.com/apache/nifi	4
+Astronomer	United States	astronomer.io	4
+Prefect	United States	prefect.io	4
+Google Cloud Workflows	United States	cloud.google.com/workflows	4
+Dagster	United States	dagster.io	4
+Union.ai	United States	union.ai	4
+Microsoft Azure Data Factory	United States	azure.microsoft.com/en-us/products/data-factory	4
+Jenkins	United States	jenkins.io	4
+dbt Labs Jobs	United States	getdbt.com/product/deploy	4
+Google Cloud Composer	United States	cloud.google.com/composer	4
+Apache Airflow	Apache Airflow - A platform to programmatically author, schedule, and monitor workflows	github.com/apache/airflow	4
+Temporal	United States	temporal.io	4
+Argo	Workflow Engine for Kubernetes	github.com/argoproj/argo-workflows	4
+Databricks Workflows	United States	docs.databricks.com/aws/en/jobs	4
+Flyte	Scalable and flexible workflow orchestration platform that seamlessly unifies data, ML and analytics stacks.	github.com/flyteorg/flyte	4
+Kestra	Orchestrate everything - from scripts to data, infra, AI, and business - as code, with UI and AI Copilot. Simple. Fast. Scalable.	github.com/kestra-io/kestra	4
+GitHub Actions	United States	github.com/features/actions	4
+AWS Step Functions	United States	aws.amazon.com/step-functions	4
+Microsoft Azure Synapse Pipelines	United States	azure.microsoft.com/en-us/products/data-factory	4
+AWS Glue Data Quality	United States	aws.amazon.com/glue/features/data-quality	5
+Monte Carlo	United States	montecarlodata.com	5
+Acceldata	United States	acceldata.io	5
+Collibra	United States	collibra.com/us/en	5
+Datafold	United States	datafold.com	5
+Telmai	United States	telm.ai	5
+Pantomath	United States	pantomath.com	5
+Elementary Data	Israel	elementary-data.com	5
+Lightup	United States	lightup.ai	5
+Sifflet	France	siffletdata.com	5
+Validio	Sweden	validio.io	5
+Soda	Belgium	soda.io	5
+Bigeye	United States	bigeye.com	5
+Observe	United States	observeinc.com	5
+Masthead Data	Canada	mastheadata.com	5
+Anomalo	United States	anomalo.com	5
+Kensu	United States	kensu.io	5
+Google Cloud Dataplex Data Quality	United States	cloud.google.com/dataplex/docs/auto-data-quality-overview	5
+Atlan	Singapore	atlan.com	5
+Finout	Israel	finout.io	6
+Google Cloud Operations Suite	United States	cloud.google.com/products/observability	6
+AWS Cloudwatch	United States	aws.amazon.com/cloudwatch	6
+New Relic	United States	newrelic.com	6
+Cisco AppDynamics	United States	appdynamics.com	6
+Splunk	United States	splunk.com	6
+Kubecost	United States	apptio.com/products/kubecost	6
+Datadog	United States	datadoghq.com	6
+Cribl	United States	cribl.io	6
+Chronosphere	United States	chronosphere.io	6
+GrafanaLabs	United States	grafana.com	6
+PagerDuty	United States	pagerduty.com	6
+honeycomb.io	United States	honeycomb.io	6
+Elastic	United States	elastic.co	6
+Azure Monitor	United States	azure.microsoft.com/en-us/products/monitor	6
+OpenTelemetry	OpenTelemetry makes robust, portable telemetry a built-in feature of cloud-native software.	github.com/open-telemetry	6
+Sentry	United States	sentry.io/welcome	6
+CloudZero	United States	cloudzero.com	6
+TrustArc	United States	trustarc.com	7
+Securiti	United States	securiti.ai	7
+Very Good Security	United States	verygoodsecurity.com	7
+Transcend	United States	transcend.io	7
+Cyera	United States	cyera.io	7
+Privacera	United States	privacera.com	7
+SkyFlow	United States	skyflow.com	7
+Bedrock Security	United States	bedrock.security	7
+Duality Technologies	United States	dualitytech.com	7
+Piiano	Israel	piiano.com	7
+Enveil	United States	enveil.com	7
+Teleskope	United States	teleskope.ai	7
+OneTrust	United States	onetrust.com	7
+Ketch	United States	ketch.com	7
+Opaque Systems	United States	opaque.co	7
+Immuta	United States	immuta.com	7
+BigID	United States	bigid.com	7
+Collibra	United States	collibra.com/us/en	7
+VMware Tanzu	United States	vmware.com/products/app-platform/tanzu	8
+Cloudflare Workers	United States	workers.cloudflare.com	8
+Ubuntu Canonical Kubernetes	United Kingdom	ubuntu.com/kubernetes	8
+Red Hat	United States	redhat.com/en/products/high-performance-computing	8
+Kubernetes	Production-Grade Container Scheduling and Management	github.com/kubernetes/kubernetes	8
+Equinix	United States	equinix.com	8
+Google Cloud Functions	United States	cloud.google.com/functions	8
+Amazon EKS / ECS	United States	aws.amazon.com/ecs	8
+Azure Kubernetes Service	United States	azure.microsoft.com/en-us/products/kubernetes-service	8
+AWS Lambda	United States	aws.amazon.com/lambda	8
+Penguin Solutions	United States	penguinsolutions.com	8
+Nvidia Bright Cluster	United States	nvidia.com/en-us/data-center/bright-cluster-manager	8
+HPE	United States	hpe.com/us/en/home.html	8
+Azure Functions	United States	azure.microsoft.com/en-us/products/functions	8
+Rancher	United States	rancher.com	8
+Google Cloud Kubernetes Engine	United States	cloud.google.com/kubernetes-engine	8
+Fastly	United States	fastly.com	8
+Vercel Edge Functions	United States	vercel.com/docs/functions	8
+Brooklyn Data Co	United States	brooklyndata.co	9
+Thoughtworks	United States	thoughtworks.com	9
+Tribe.ai	United States	tribe.ai	9
+KPMG Lighthouse	website	advisory-marketing.us.kpmg.com/lighthouse/index.html	9
+Deeper Insights	United Kingdom	deeperinsights.com	9
+LeewayHertz	India	leewayhertz.com	9
+BCGX	United States	bcg.com/x	9
+Slalom	United States	slalom.com	9
+Deloitte AI Institute	United Kingdom	www2.deloitte.com/us/en/pages/deloitte-analytics/articles/advancing-human-ai-collaboration.html	9
+IBM AI Consulting	United States	ibm.com/consulting/artificial-intelligence	9
+Bytecode IO	United States	bytecode.io	9
+BlueOrange	United States	blueorange.digital	9
+Meru	United States	wearemeru.com	9
+Latentview	India	latentview.com	9
+phData	United States	phdata.io	9
+EY Consulting Services	United Kingdom	ey.com/en_us/consulting/analytics-consulting-services	9
+ZS Associates	United States	zs.com/solutions/artificial-intelligence-and-analytics	9
+Artefact	France	artefact.com	9
+Data Root Labs	Ukraine	datarootlabs.com	9
+Tredence	United States	tredence.com	9
+DAS42	United States	das42.com	9
+Tiger Analytics	United States	tigeranalytics.com	9
+Accenture	United States	accenture.com/us-en	9
+pwc	United Kingdom	pwc.com/us/en.html	9
+Quantiphi	United States	quantiphi.com	9
+Seattle Data Guy	United States	theseattledataguy.com	9
+Fractal	India	fractal.ai	9
+QuantumBlack AI by McKinsey	United States	mckinsey.com/capabilities/quantumblack/how-we-help-clients	9
+Salesforce Service Cloud Einstein	United States	salesforce.com/analytics/crm	10
+Servicenow Now Assist	United States	servicenow.com/platform/now-assist.html	10
+Wonderful	Israel	wonderful.ai	10
+Agency	United States	agency.inc	10
+Zendesk	United States	zendesk.com	10
+Sierra AI	United States	sierra.ai	10
+Decagon	United States	decagon.ai	10
+Giga	United States	giga.ai	10
+Ada	Canada	ada.cx	10
+Intercom	United States	intercom.com	10
+Kore.ai	United States	kore.ai	10
+Parloa	Germany	parloa.com	10
+Gorgias	United States	gorgias.com	10
+Observe.ai	United States	observe.ai	10
+Poly.ai	United Kingdom	poly.ai	10
+Yellow.ai	United States	yellow.ai	10
+Forethought	United States	forethought.ai	10
+Maven AGI	United States	mavenagi.com	10
+AirOps	United States	airops.com	11
+Outreach	United States	outreach.io	11
+Collective[i]	United States	collectivei.com	11
+Salesloft	United States	salesloft.com	11
+Firsthand	United States	firsthand.ai	11
+Vendelux	United States	vendelux.com	11
+Databook	United States	trydatabook.com	11
+Unify	United States	unifygtm.com	11
+Actively AI	United States	actively.ai	11
+11x	United States	11x.ai	11
+Momentum	United States	momentum.io	11
+Clay	United States	clay.com	11
+HubSpot	United States	hubspot.com	11
+Apollo	United States	apollo.io	11
+Gong	United States	gong.io	11
+Regie.ai	United States	regie.ai	11
+6sense	United States	6sense.com	11
+Evertune	United States	evertune.ai	11
+Bluefish	United States	bluefishai.com	11
+Profound	United States	tryprofound.com	11
+Cresta	United States	cresta.com	11
+Zeta Labs	United States	zetalabs.ai	12
+Sola	United States	sola.ai	12
+Distyl	United States	distyl.ai	12
+Thread AI	United States	threadai.com	12
+Servicenow Automation Engine	United States	servicenow.com/platform/now-assist.html	12
+Google Workspace (Gemini) Automations	United States	workspace.google.com/blog/product-announcements/new-ai-drives-business-results	12
+AWS Q Business	United States	aws.amazon.com/q/business	12
+OpenAI Automations	United States	openai.com/business	12
+Microsoft Power Automate + Copilot	United States	microsoft.com/en/power-platform/products/power-automate	12
+UiPath Autopilot	United States	uipath.com	12
+Celonis Process Intellligence + AI	United States	celonis.com	12
+HyperScience	United States	hyperscience.com	12
+Workato	United States	workato.com	12
+Zapier AI Actions	United States	zapier.com	12
+Kognitos	United States	kognitos.com	12
+Rossum	United Kingdom	rossum.ai	12
+Sema4.ai	United States	sema4.ai	12
+Orby AI	United States	orby.ai	12
+Workday HiredScore	United States	workday.com/en-us/products/talent-management/ai-recruiting.html	13
+Juicebox	United States	juicebox.ai	13
+Ashby	United States	ashbyhq.com	13
+Gloat	Israel	gloat.com	13
+Seekout	United States	seekout.com/ssd	13
+Deel	United States	deel.com	13
+Mercor	United States	mercor.com	13
+eightfold.ai	United States	eightfold.ai	13
+Tezi	United States	tezi.ai	13
+Micro1	United States	micro1.ai	13
+Beamery	United Kingdom	beamery.com	13
+Paradox	United States	paradox.ai	13
+Visier	Canada	visier.com	13
+Converzai	United States	converzai.com	13
+Workera	United States	workera.ai	13
+Legora	Sweden	leya.law	14
+Darrow	United States	darrow.ai	14
+Ivo	United States	ivo.ai	14
+Luminance	United Kingdom	luminance.com	14
+Cicero	United States	cicerotech.ai	14
+Robin AI	United Kingdom	robinai.com	14
+Eve	United States	eve.legal	14
+Draftwise	United States	draftwise.com	14
+Spellbook	Canada	spellbook.legal	14
+DoNotPay	United States	donotpay.com	14
+Thomson Reuters CoCounsel	Canada	thomsonreuters.com/en/cocounsel	14
+Harvey	United States	harvey.ai	14
+Ironclad AI Assist	United States	support.ironcladapp.com/hc/en-us/articles/13740722454935-AI-Assist-Overview	14
+EvenUp	United States	evenuplaw.com	14
+vlex Vincent AI	Spain	vlex.com/vincent-ai	14
+Clio	Canada	clio.com	14
+Evisort	United States	evisort.com	14
+LexisNexis Lexis+ AI	United States	lexisnexis.com/en-us/products/lexis-plus-ai.page	14
+Everlaw	United States	everlaw.com	14
+Vanta	United States	vanta.com	15
+Drata	United States	drata.com	15
+Norm AI	United States	norm.ai	15
+SentiLink	United States	sentilink.com	15
+Abstract	United States	abstract.us	15
+Greenboard	United States	greenboard.com	15
+Ramp	United States	mad.firstmark.com/ramp.com	15
+Brex	United States	mad.firstmark.com/brex.com	15
+Pigment	France	gopigment.com	15
+Campfire	United States	meetcampfire.com	15
+Unit21	United States	unit21.ai	15
+Alloy	United States	alloy.com	15
+Highbeam	United States	highbeam.com	15
+Secureframe	United States	secureframe.com	15
+Stripe Radar	United States	stripe.com/radar	15
+Rillet	United States	rillet.com	15
+Riskified	United States	riskified.com	15
+GoodDay	United States	gooddaysoftware.com	15
+Doss	United States	doss.com	15
+Modern Treasury	United States	moderntreasury.com	15
+Vercel v0	United States	v0.dev	16
+Augment	United States	augmentcode.com	16
+Cognition	United States	cognition.ai	16
+Factory	United States	factory.ai	16
+Magic	United States	magic.dev	16
+All Hands	United States	all-hands.dev	16
+Lovable	United States	lovable.dev	16
+StackBlitz	United States	bolt.new	16
+Replit	United States	replit.com	16
+Claude Code	United States	anthropic.com/claude-code	16
+GitHub Copilot	United States	github.com/features/copilot	16
+Windsurf	United States	windsurf.com	16
+Cursor	United States	cursor.sh	16
+Diffblue	United Kingdom	diffblue.com	16
+AWS Q Developer	United States	aws.amazon.com/codewhisperer	16
+Zed	United States	zed.dev	16
+Sourcegraph Cody	United States	sourcegraph.com/cody	16
+Graphite	United States	graphite.dev	16
+CodeRabbit	United States	coderabbit.ai	16
+Greptile	United States	greptile.com	16
+Cline	United States	cline.bot	16
+Qodo	Israel	qodo.ai	16
+Continue	United States	continue.dev	16
+OpenAI GPT-5 Codex	United States	platform.openai.com/docs/models/gpt-5-codex	16
+Roo Code	United States	roocode.com	16
+Google Gemini CLI	United States	docs.cloud.google.com/gemini/docs/codeassist/gemini-cli	16
+Jetbrains	Czech Republic	jetbrains.com	16
+Kilo Code	United States	kilocode.ai	16
+Google Workspace Gemini	United States	workspace.google.com/blog/product-announcements/new-ai-drives-business-results	17
+Jasper	United States	jasper.ai	17
+Anthropic Claude	United States	anthropic.com/news/claude-3-family	17
+Notion AI	United States	notion.com/product/ai	17
+Microsoft Copilot	United States	copilot.microsoft.com	17
+OpenAI ChatGPT	United States	openai.com/blog/chatgpt	17
+Perplexity	United States	perplexity.ai	17
+Glean	United States	glean.com	17
+Writer	United States	writer.com	17
+Sana	Sweden	sanalabs.com	17
+Fireflies	United States	fireflies.ai	17
+Dust	France	dust.tt	17
+Manus	Singapore	manus.im	17
+Lindy	United States	lindy.ai	17
+Fathom	United States	fathom.ai	17
+Granola	United Kingdom	granola.ai	17
+Coda	United States	coda.io	17
+You	United States	you.com	17
+Guru	United States	getguru.com	17
+PhotoRoom	France	photoroom.com	18
+Stability.ai	United Kingdom	stability.ai	18
+Midjourney	United States	midjourney.com/home	18
+Black Forest Labs	United States	blackforestlabs.ai	18
+Adobe Firefly	United States	adobe.com/products/firefly.html	18
+Figma AI	United States	figma.com	18
+Canva Magic Studio	Australia	canva.com	18
+Mirage	United States	mirage.app	18
+Google DeepMind Veo 3	United Kingdom	deepmind.google/technologies/veo/veo-2	18
+Runway	United States	runwayml.com	18
+Synthesia	United Kingdom	synthesia.io	18
+OpenAI Sora 2	United States	openai.com/sora	18
+Pika	United States	pika.art/home	18
+Kling AI	China	klingai.com/global	18
+Luma AI	United States	lumalabs.ai	18
+Higgsfield	United States	higgsfield.ai	18
+Hedra	United States	hedra.com	18
+Moonvalley	Canada	moonvalley.com	18
+HeyGen	United States	heygen.com	18
+NVIDIA Omniverse	United States	nvidia.com/en-us/omniverse	19
+World Labs	United States	worldlabs.ai	19
+Luma AI Genie 3D	United States	lumalabs.ai	19
+Inworld	United States	inworld.ai	19
+Anything World	United Kingdom	anything.world	19
+Adobe Substance 3D	United States	adobe.com/products/substance3d.html	19
+Physna	United States	physna.com	19
+Kaedim	United Kingdom	kaedim3d.com	19
+Spline	United States	spline.design	19
+Move	United Kingdom	move.ai	19
+Artificial Agency	Canada	artificial.agency	19
+Yellow	United States	yellow3d.com	19
+Plask	United States	plask.ai/en-US	19
+Decart AI	United States	decart.ai	19
+Unity Muse	United States	muse.unity.com	19
+DeepGram	United States	deepgram.com	20
+AssemblyAI	United States	assemblyai.com	20
+Cartesia	United States	cartesia.ai	20
+Retell AI	United States	retellai.com	20
+LiveKit	United States	livekit.io	20
+Synthflow	Germany	synthflow.ai	20
+Vapi	United States	vapi.ai	20
+Eleven Labs	United States	beta.elevenlabs.io	20
+Suno	United States	suno.ai	20
+Hume AI	United States	hume.ai	20
+Sanas	United States	sanas.ai	20
+Sesame	United States	sesame.com	20
+Bland AI	United States	bland.ai	20
+Voicemod	Spain	voicemod.net	20
+Resemble.ai	United States	resemble.ai	20
+Sindarin	United States	sindarin.tech	20
+Daily	United States	daily.co	20
+OpenAI Realtime API	United States	platform.openai.com/docs/api-reference/realtime	20
+Owkin	United States	owkin.com	21
+Recursion	United States	recursion.com	21
+Latent Labs	United Kingdom	latentlabs.com	21
+Chai Discovery	United States	chaidiscovery.com	21
+Evolutionary Scale	United States	evolutionaryscale.ai	21
+Freenome	United States	freenome.com	21
+Benchling	United States	benchling.com	21
+Tennr	United States	tennr.com	21
+Insitro	United States	insitro.com	21
+Alaffia Health	United States	alaffia.ai	21
+Abridge	United States	abridge.com	21
+Hippocratic AI	United States	hippocraticai.com	21
+Nabla	France	nabla.com	21
+Ambience	United States	ambiencehealthcare.com	21
+Viz.ai	United States	viz.ai	21
+OpenEvidence	United States	openevidence.com	21
+Tempus	United States	tempus.com	21
+Anterior	United States	anterior.com	21
+Corti	Denmark	corti.ai	21
+Modern Treasury	United States	moderntreasury.com	22
+Anrok	United States	anrok.com	22
+Klarity	United States	klarity.ai	22
+Vic.ai	United States	vic.ai	22
+OpenEnvoy	United States	openenvoy.com	22
+Numeric	United States	numeric.io	22
+Ocrolus	United States	ocrolus.com	22
+Basis	United States	getbasis.ai	22
+Tabs	United States	tabs.inc	22
+Kensho	United States	kensho.com	22
+Hebbia	United States	hebbia.com	22
+Noetica	United States	noetica.ai	22
+Farsight AI	United States	farsight-ai.com	22
+Rogo	United States	rogo.ai	22
+Auquan	United Kingdom	auquan.com	22
+Endex	United States	endex.ai	22
+ModelML	United States	modelml.com	22
+Taktile	Germany	taktile.com	22
+Nuro	United States	nuro.ai	23
+Tesla	United States	tesla.com	23
+Aurora	United States	aurora.tech	23
+Applied Intuition	United States	appliedintuition.com	23
+Covariant	United States	covariant.ai	23
+1x	Norway	1x.tech	23
+Figure	United States	figure.ai	23
+Apptronik	United States	apptronik.com	23
+Cobot	United States	co.bot	23
+Physical Intelligence	United States	physicalintelligence.company	23
+Flexion	Switzerland	flexion.ai	23
+Skild AI	United States	skild.ai	23
+Exodigo	Israel	exodigo.com	23
+Sanctuary AI	Canada	sanctuary.ai	23
+Intrinsic	United States	intrinsic.ai	23
+Bright Machines	United States	brightmachines.com	23
+Telekinesis	Germany	telekinesis.ai	23
+Genesis AI	United States	genesis-ai.company	23
+Tycho AI	United States	tycho.ai	24
+Palantir	United States	palantir.com	24
+Shield AI	United States	shield.ai	24
+Anduril	United States	anduril.com	24
+Vannevar Labs	United States	vannevarlabs.com	24
+Helsing	Germany	helsing.ai	24
+Skydio	United States	skydio.com	24
+Epirus	United States	epirusinc.com	24
+Hadrian	United States	hadrian.co	24
+Rebellion	United States	rebelliondefense.com	24
+CHAOS Industries	United States	chaosinc.com	24
+Primer	United States	primer.ai	24
+Boom	United States	boomsupersonic.com	24
+Mach Industries	United States	mach.industries	24
+Saronic	United States	saronic.com	24
+Harmattan AI	France	harmattan.ai	24
+Kela	Israel	kelasys.com	24
+Neros	United States	neros.tech	24
+Echodyne	United States	echodyne.com	24
+Amazon S3	United States	aws.amazon.com/s3	25
+Azure Storage	United States	azure.microsoft.com/en-us/products/category/storage	25
+Google Cloud Storage	United States	cloud.google.com/storage	25
+IBM Storage	United States	ibm.com/storage	25
+NetApp	United States	netapp.com	25
+Wasabi	United States	wasabi.com	25
+Oracle Object Storage	United States	oracle.com/cloud/storage/object-storage	25
+MinIO	United States	min.io	25
+Backblaze	United States	backblaze.com/b2/docs/s3_compatible_api.html	25
+Cloudflare R2	United States	cloudflare.com/products/r2	25
+Vast Data	United States	vastdata.com	25
+Snowflake Iceberg / Polaris / Unistore	United States	snowflake.com/en/product/data-engineering/data-lake	26
+Dremio	United States	dremio.com	26
+Databricks Lakehouse (Delta Lake)	United States	databricks.com/product/data-lakehouse	26
+Starburst	United States	starburst.io	26
+Azure Synapse + ADLS	United States	azure.microsoft.com/en-us/products/synapse-analytics	26
+Google Cloud BigLake / Dataproc	United States	cloud.google.com/biglake	26
+AWS Lake Formation / EMR	United States	aws.amazon.com/lake-formation	26
+AWS Athena	United States	aws.amazon.com/lake-formation	26
+IBM Watsonx.Data	United States	ibm.com/data-lake	26
+Cloudera	United States	cloudera.com	26
+OneHouse	United States	onehouse.ai	26
+Iceberg	Apache Iceberg	github.com/apache/iceberg	26
+Apache Hudi	Upserts, Deletes And Incremental Processing on Big Data.	github.com/apache/hudi	26
+Delta Lake	An open-source storage framework that enables building a Lakehouse architecture with compute engines including Spark, PrestoDB, Flink, Trino, and Hive and APIs	github.com/delta-io/delta	26
+LakeFS	lakeFS - Data version control for your data lake | Git for data	github.com/treeverse/lakeFS	26
+Bauplan Labs	United States	bauplanlabs.com	26
+IBM Db2 Warehouse	United States	ibm.com/products/db2-warehouse	27
+Teradata	United States	teradata.com	27
+Vertica, An OpenText Company	United States	vertica.com/overview	27
+Oracle ADW	United States	oracle.com/autonomous-database/autonomous-data-warehouse	27
+Azure Synapse	United States	azure.microsoft.com/en-us/products/synapse-analytics	27
+AWS Amazon RedShift	United States	aws.amazon.com/redshift	27
+Snowflake	United States	snowflake.com/en	27
+Google Cloud BigQuery	United States	cloud.google.com/bigquery	27
+Clickhouse	United States	clickhouse.com	27
+Firebolt	Israel	firebolt.io/home-v2	27
+Yellowbrick	United States	yellowbrick.com	27
+Databricks SQL	United States	databricks.com/product/databricks-sql	27
+Confluent	United States	confluent.io	28
+StreamNative	United States	streamnative.io	28
+RedPanda	United States	redpanda.com	28
+Conduktor	United States	conduktor.io	28
+Ably	United Kingdom	ably.com	28
+Aiven	Finland	aiven.io	28
+Redis Streams	United States	redis.io/docs/latest/develop/data-types/streams	28
+Pulsar	website	github.com/apache/pulsar	28
+RabbitMQ	website	github.com/rabbitmq/rabbitmq-server	28
+Kafka	website	github.com/apache/kafka	28
+Google Pub / Sub	website	cloud.google.com/pubsub	28
+AWS SNS / SQS	website	aws.amazon.com/sns	28
+HiveMQ	Germany	hivemq.com	28
+Azure Event Hubs	website	azure.microsoft.com/en-us/products/event-hubs	28
+Confluent Kafka Connect / ksqlDB	United States	docs.confluent.io/platform/current/connect/index.html	29
+AWS Kinesis Data Analytics	United States	aws.amazon.com/kinesis	29
+Google Cloud Dataflow	United States	cloud.google.com/dataflow	29
+DeltaStream	United States	deltastream.io	29
+Chalk	United States	chalk.ai	29
+Hazelcast	United States	hazelcast.com	29
+Decodable	United States	decodable.co	29
+Estuary	United States	estuary.dev	29
+Striim	United States	striim.com	29
+Upsolver	United States	upsolver.com	29
+Quix	United Kingdom	quix.io	29
+Azure Stream Analytics	website	azure.microsoft.com/en-us/products/stream-analytics	29
+Flink	website	github.com/apache/flink	29
+Debezium	website	github.com/debezium/debezium	29
+Apache Beam	website	github.com/apache/beam	29
+SAP HANA Cloud	Germany	sap.com/products/technology-platform/hana.html	30
+Oracle	United States	oracle.com	30
+IBM DB2	United States	ibm.com/products/db2	30
+SAP ASE	Germany	sap.com/products/technology-platform/sybase-ase.html	30
+Microsoft SQL Server	United States	microsoft.com/en-us/sql-server	30
+AWS RDS	United States	aws.amazon.com/rds	30
+YugabyteDB	United States	yugabyte.com	30
+Supabase	United States	supabase.com	30
+PlanetScale	United States	planetscale.com	30
+MariaDB	United States	mariadb.com/products/enterprise/xpand	30
+AWS Aurora	United States	aws.amazon.com/rds/aurora	30
+Google Cloud Spanner	United States	cloud.google.com/spanner	30
+CockroachDB	United States	cockroachlabs.com	30
+Google Cloud AlloyDB	United States	cloud.google.com/alloydb	30
+TigerBeetle	United States	tigerbeetle.com	30
+TigerData	United States	tigerdata.com	30
+Nile	United States	thenile.dev	30
+Volt Active Data	United States	voltactivedata.com	30
+pgEdge	United States	pgedge.com	30
+Dassault Systemes NuoDB	France	3ds.com/nuodb-distributed-sql-database	30
+PostgreSQL	Mirror of the official PostgreSQL GIT repository. Note that this is just a \*mirror\* - we don't work with pull requests on github. To contribute, please see <https://wiki.postgresql.org/wiki/Submitting_a_Patch>	github.com/postgres/postgres	30
+MySQL	MySQL Server, the world's most popular open source database, and MySQL Cluster, a real-time, open source transactional database.	github.com/mysql/mysql-server	30
+Azure SQL Database	United States	azure.microsoft.com/en-us/products/azure-sql/database	30
+Neon	United States	neon.com	30
+Google Cloud Cloud SQL	United States	cloud.google.com/sql	30
+HarperDB	United States	harpersystems.dev	31
+Google Cloud Bigtable	United States	cloud.google.com/bigtable	31
+AWS DocumentDB	United States	aws.amazon.com/documentdb	31
+Oracle NoSQL	United States	oracle.com	31
+AWS DynamoDB	United States	aws.amazon.com/dynamodb	31
+Azure CosmosDB	United States	azure.microsoft.com/en-ca/products/cosmos-db	31
+MongoDB	United States	mongodb.com	31
+Progress MarkLogic	United States	progress.com/marklogic	31
+Couchbase	United States	couchbase.com	31
+Datastax (Cassandra)	United States	datastax.com	31
+ScyllaDB	United States	scylladb.com	31
+Aerospike	United States	aerospike.com	31
+Upstash	United States	upstash.com	31
+Fauna	United States	fauna.com/home	31
+Google Cloud Firestore	United States	cloud.google.com/products/firestore	31
+Redis Enterprise	United States	redis.io/docs/latest/operate/rs	31
+AWS Keyspaces	United States	aws.amazon.com/keyspaces	31
+Azure Table Storage	United States	azure.microsoft.com/en-us/products/storage/tables	31
+e6data	United States	e6data.com	32
+Firebolt	Israel	firebolt.io/home-v2	32
+MotherDuck	United States	motherduck.com	32
+RisingWave Labs	United States	risingwave-labs.com	32
+InfluxData	United States	influxdata.com	32
+SingleStore	United States	singlestore.com	32
+StarRocks	United States	starrocks.io	32
+Redis	United States	redis.com	32
+Clickhouse	United States	clickhouse.com	32
+Apache Pinot	Apache Pinot - A realtime distributed OLAP datastore	github.com/apache/pinot	32
+Apache Druid	Apache Druid: a high performance real-time analytics database.	github.com/apache/druid	32
+Apache Doris	Apache Doris is an easy-to-use, high performance and unified analytics database.	github.com/apache/doris	32
+Imply	United States	imply.io	32
+QuestDB	United Kingdom	questdb.io	32
+KX	United States	kx.com	32
+Materialize	United States	materialize.com	32
+Startree	United States	startree.ai	32
+Tinybird	Spain	tinybird.co	32
+Apache HugeGraph	United States	github.com/apache/incubator-hugegraph	33
+JanusGraph	United States	github.com/JanusGraph/janusgraph	33
+OrientDB	United Kingdom	github.com/orientechnologies/orientdb	33
+NebulaGraph	United States	nebula-graph.io	33
+neo4j	United States	neo4j.com	33
+AWS Neptune	United States	aws.amazon.com/neptune	33
+ArangoDB	United States	arangodb.com	33
+Dgraph	United States	dgraph.io	33
+Memgraph	United Kingdom	memgraph.com	33
+Oracle Graph	United States	oracle.com	33
+Stardog	United States	stardog.com	33
+TigerGraph	United States	tigergraph.com	33
+Azure CosmosDB (Gremlin API)	United States	azure.microsoft.com/en-ca/products/cosmos-db	33
+FalkorDB	Israel	falkordb.com	33
+PuppyGraph	United States	puppygraph.com	33
+AgensGraph	AgensGraph, a transactional graph database based on PostgreSQL	github.com/skaiworldwide-oss/agensgraph	33
+TypeDB	United Kingdom	typedb.com	33
+Activeloop	United States	activeloop.ai	34
+Databricks Vector Search	United States	databricks.com/product/machine-learning/vector-search	34
+PostgreSQL Pgvector	United States	github.com/pgvector/pgvector	34
+Snowflake Cortex Vector	United States	docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview	34
+Pinecone	United States	pinecone.io	34
+Chroma	United States	trychroma.com	34
+Turbopuffer	Canada	turbopuffer.com	34
+Weaviate	Netherlands	weaviate.io	34
+Zilliz	United States	zilliz.com	34
+Qdrant	Germany	qdrant.tech	34
+Vespa	Norway	vespa.ai	34
+LanceDB	United States	lancedb.com	34
+Marqo	United States	marqo.ai	34
+Vald	Japan	vald.vdaas.org	34
+OpenSearch KNN	United States	docs.opensearch.org/latest/query-dsl/specialized/k-nn/index	34
+MongoDB Atlas Vector	United States	mongodb.com/products/platform/atlas-vector-search	34
+Redis Vector	United States	redis.io/solutions/vector-database	34
+Elastic ES Vector	United States	elastic.co/elasticsearch/vector-database	34
+Heavy.ai	United States	heavy.ai	35
+HeteroDB	Japan	heterodb.com	35
+Kinetica	United States	kinetica.com	35
+SQream	United States	sqream.com	35
+Brytlyt	United Kingdom	brytlyt.io	35
+Oracle HeatWave	United States	oracle.com/heatwave	35
+BlazingSQL	United States	mad.firstmark.com/blazingsql.com	35
+Cloudflare D1	United States	cloudflare.com/developer-platform/products/d1	36
+TileDB	United States	tiledb.com	36
+Gel	Canada	geldata.com	36
+CedarDB	Germany	cedardb.com	36
+SurrealDB	United Kingdom	surrealdb.com	36
+Xata	United States	xata.io	36
+Prisma	Germany	prisma.io	36
+HarperDB	United States	harpersystems.dev	36
+dolthub	United States	dolthub.com	36
+FerretDB	A truly Open Source MongoDB alternative	github.com/FerretDB/FerretDB	36
+Macrometa	United States	macrometa.com	36
+Fauna	United States	fauna.com/home	36
+Zoho	United Kingdom	zoho.com/analytics	37
+Wisdom AI	United States	wisdom.ai	37
+Google Looker + Gemini	United States	looker.com	37
+Qlik Staige	United States	qlik.com/us	37
+Salesforce CRM Analytics	United States	salesforce.com/analytics/crm	37
+Strategy	United States	microstrategy.com/en	37
+Snowflake Cortex Analyst	United States	docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst	37
+ThoughtSpot	United States	thoughtspot.com	37
+SAP Analytics Cloud	Germany	sap.com/products/data-cloud/cloud-analytics.html	37
+Oracle Analytics Cloud	United States	oracle.com/analytics	37
+Databricks LakehouseIQ	United States	databricks.com/blog/introducing-lakehouseiq-ai-powered-engine-uniquely-understands-your-business	37
+Tableau	United States	tableau.com	37
+Microsoft Power BI + Copilot	United States	powerbi.microsoft.com/en-us	37
+Julius	United States	julius.ai	37
+Sigma Computing	United States	sigmacomputing.com	37
+TextQL	United States	textql.com	37
+Omni	United States	exploreomni.com	37
+Athena Intelligence	United States	athenaintel.com	37
+Hex	United States	hex.tech	37
+Domo	United States	domo.com	37
+AWS QuickSight	United States	aws.amazon.com/quicksuite/quicksight	37
+Mozart Data	United States	mozartdata.com	38
+dbt Labs MetricFlow	United States	docs.getdbt.com/docs/build/about-metricflow	38
+dbt Labs Semantic Layer	United States	docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl	38
+Zenlytic	United States	zenlytic.com	38
+Lightdash	United States	lightdash.com	38
+Atscale	United States	atscale.com	38
+GoodData	United States	gooddata.com	38
+Metabase	United States	metabase.com	38
+Preset	United States	preset.io	38
+Rill	United States	rilldata.com	38
+Luzmo	Belgium	luzmo.com	38
+Trace Metric Trees	United States	hellotrace.io	38
+Equals	United States	equals.app	38
+Cube	United States	cube.dev	38
+Google LookML	United States	docs.cloud.google.com/looker/docs/what-is-lookml	38
+Google Cloud Vizier	United States	cloud.google.com/vertex-ai/docs/vizier/overview	39
+VWO	India	vwo.com	39
+OpenAI Statsig	United States	statsig.com	39
+Kameleoon	United States	kameleoon.com	39
+Convert	United States	convert.com	39
+Optimizely	United States	optimizely.com	39
+Ax	United States	github.com/facebook/Ax	39
+Mixpanel Experiment	United States	mixpanel.com/platform/experiments	39
+Adobe Target	United States	business.adobe.com/products/target.html	39
+Microsoft DoWhy	United States	microsoft.com/en-us/research/project/dowhy	39
+Microsoft EconML	United States	microsoft.com/en-us/research/project/econml	39
+CausalML	Uplift modeling and causal inference with machine learning algorithms	github.com/uber/causalml	39
+PyMC	United States	github.com/pymc-devs/pymc	39
+Conductrics	United States	conductrics.com	39
+Monetate SiteSpect	United States	monetate.com	39
+Amplitude Experiment	United States	amplitude.com/amplitude-experiment	39
+Datadog Eppo	United States	geteppo.com	39
+ABTasty	France	abtasty.com	39
+Heap	United States	heap.io	40
+Glassbox	United Kingdom	glassbox.com	40
+Gainsight	United States	gainsight.com	40
+Whatfix	India	whatfix.com	40
+Avo	United States	avo.app	40
+Sprig	United States	sprig.com	40
+Kubit	United States	kubit.ai	40
+Amplitude	United States	amplitude.com	40
+Mixpanel	United States	mixpanel.com	40
+Pendo	United States	pendo.io	40
+Contentsquare	France	contentsquare.com	40
+Posthog	United States	posthog.com	40
+Fullstory	United States	fullstory.com	40
+Synerise	United States	synerise.com	40
+Loops	Israel	getloops.ai	40
+Logrocket	United States	logrocket.com	40
+Quantum Metric	United States	quantummetric.com	40
+mparticle analytics	United States	mparticle.com	40
+Anyscale	United States	anyscale.com	41
+Hugging Face	France	huggingface.co	41
+Lightning AI	United States	lightning.ai	41
+Langchain	United States	langchain.com	41
+LlamaIndex	United States	llamaindex.ai	41
+Predibase	United States	predibase.com	41
+Vercel AI SDK	United States	ai-sdk.dev/docs/introduction	41
+Contextual AI	United States	contextual.ai	41
+Deepset	Germany	deepset.ai	41
+Adaptive	United States	adaptive-ml.com	41
+LastMile AI	United States	lastmileai.dev	41
+Arcee AI	United States	arcee.ai	41
+Daytona	United States	daytona.io	41
+E2B	Czech Republic	e2b.dev	41
+Replicate	United States	replicate.com	41
+Open WebUI	User-friendly AI Interface (Supports Ollama, OpenAI API, ...)	github.com/open-webui/open-webui	42
+LocalAI	🤖 The free, Open Source alternative to OpenAI, Claude and others. Self-hosted and local-first. Drop-in replacement for OpenAI, running on consumer-grade hardware. No GPU required. Runs gguf, transformers, diffusers and many more. Features: Generate Text, Audio, Video, Images, Voice Cloning, Distributed, P2P and decentralized inference	github.com/mudler/LocalAI	42
+Nexa AI	United States	nexa.ai	42
+Jan	Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.	github.com/menloresearch/jan	42
+Llama.cpp	LLM inference in C/C++	github.com/ggerganov/llama.cpp	42
+llamafile	Distribute and run LLMs with a single file.	github.com/Mozilla-Ocho/llamafile	42
+OpenLLM	Run any open-source LLMs, such as DeepSeek and Llama, as OpenAI compatible API endpoint in the cloud.	github.com/bentoml/OpenLLM	42
+LMStudio	United States	lmstudio.ai	42
+Ollama	Get up and running with OpenAI gpt-oss, DeepSeek-R1, Gemma 3 and other models.	github.com/ollama/ollama	42
+MLX	MLX: An array framework for Apple silicon	github.com/ml-explore/mlx	42
+GPT4ALL	GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.	github.com/nomic-ai/gpt4all	42
+LocalGPT	Chat with your documents on your local device using GPT models. No data leaves your device and 100% private.	github.com/PromtEngineer/localGPT	42
+Microsoft Copilot Studio	United States	microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio	43
+Google Cloud Vertex AI Agent Builder	United States	cloud.google.com/products/agent-builder	43
+LlamaIndex	United States	llamaindex.ai	43
+Microsoft Autogen	United States	microsoft.com/en-us/research/project/autogen	43
+Lyzr	United States	lyzr.ai	43
+Crew AI	United States	crewai.com	43
+Glean	United States	glean.com	43
+Langbase	United States	langbase.com	43
+Writer	United States	writer.com	43
+Dust	France	dust.tt	43
+Dataiku	United States	dataiku.com	43
+Emergence	United States	emergence.ai	43
+Ema	United States	ema.co	43
+Steamship	United States	steamship.com	43
+Agno	United States	agno.com	43
+Servicenow	United States	servicenow.com	43
+BabyAGI	website	github.com/yoheinakajima/babyagi	43
+LangGraph	United States	langchain.com	43
+Flowise	Build AI Agents, Visually	github.com/FlowiseAI/Flowise	43
+Salesforce Agentforce	United States	salesforce.com/agentforce	43
+Instalily	United States	instalily.ai	43
+Mechanize	United States	mechanize.work	44
+Browserbase	United States	browserbase.com	44
+Fleet	United States	fleetai.com	44
+Composio	United States	composio.dev	44
+AgentOps	United States	agentops.ai	44
+Model Context Protocol	United States	docs.anthropic.com/en/docs/mcp	44
+Zeta Labs	United States	zetalabs.ai	44
+Letta	United States	letta.com	44
+Anon	United States	anon.com	44
+Tiny Fish	United States	tinyfish.ai	44
+Browser Use	United States	browser-use.com	44
+Zep	United States	getzep.com	44
+Mem0	United States	mem0.ai	44
+Veris AI	United States	veris.ai	44
+Toolhouse	United States	toolhouse.ai	44
+Paragon	United States	useparagon.com	44
+FastMCP	🚀 The fast, Pythonic way to build MCP servers and clients	github.com/jlowin/fastmcp	44
+DSPy	DSPy: The framework for programming—not prompting—language models	github.com/stanfordnlp/dspy	44
+Crawl4AI	🚀🤖 Crawl4AI: Open-source LLM Friendly Web Crawler & Scraper. Don't be shy, join here: <https://discord.gg/jP8KfhDhyN>	github.com/unclecode/crawl4ai	44
+Firecrawl	🔥 The Web Data API for AI - Turn entire websites into LLM-ready markdown or structured data	github.com/mendableai/firecrawl	44
+Semantic Kernel	Integrate cutting-edge LLM technology quickly and easily into your apps	github.com/microsoft/semantic-kernel	44
+Nango	A single API for all your integrations.	github.com/NangoHQ/nango	44
+Kaizen	United States	kaizenautomation.com	44
+Trulens	Evaluation and Tracking for LLM Experiments and AI Agents	github.com/truera/trulens	45
+Helicone	United States	helicone.ai	45
+Langfuse	Germany	langfuse.com	45
+Distributional	United States	distributional.com	45
+Patronus AI	United States	patronus.ai	45
+LatticeFlow	Switzerland	latticeflow.ai	45
+Fiddler AI	United States	fiddler.ai	45
+Arize AI	United States	arize.com	45
+Braintrust Data	United States	braintrustdata.com	45
+Galileo	United States	rungalileo.io	45
+LangSmith	United States	smith.langchain.com	45
+Evidently AI	United States	evidentlyai.com	45
+Kolena	United States	kolena.com	45
+Klu	United Kingdom	klu.ai	45
+HoneyHive	United States	honeyhive.ai	45
+Gentrace	United States	gentrace.ai	45
+Ragas	Supercharge Your LLM Application Evaluations 🚀	github.com/explodinggradients/ragas	45
+Confident AI	United States	confident-ai.com	45
+Comet	United States	comet.com/site	45
+Mercor	United States	mercor.com	45
+Promptfoo	United States	promptfoo.dev	46
+Protect AI	United States	protectai.com	46
+Nvidia NeMo Guardrails	United States	developer.nvidia.com/nemo-guardrails	46
+Calypso AI	Ireland	calypsoai.com	46
+HiddenLayer	United States	hiddenlayer.com	46
+Lakera	United States	lakera.com	46
+Gray Swan	United States	grayswan.ai	46
+Splx AI	United States	splx.ai	46
+Guardrails AI	United States	docs.guardrailsai.com	46
+Apheris	Germany	apheris.com	46
+Cranium	United States	cranium.ai	46
+Troj.ai	Canada	troj.ai	46
+Witness AI	United States	witness.ai	46
+Mindgard	United Kingdom	mindgard.ai	46
+Prompt Security	United States	prompt.security	46
+Kindo	United States	kindo.ai	46
+Haize Labs	United States	haizelabs.com	46
+Dynamo AI	United States	dynamo.ai	46
+Promptarmor	United States	promptarmor.com	46
+Cloudflare AI Gateway Guardrails	United States	developers.cloudflare.com/ai-gateway/features/guardrails	46
+PromptHub	United States	prompthub.us	47
+Keytalk.ai	South Korea	keytalkai.com	47
+Parea	United States	parea.ai	47
+Databricks Mosaic AI Gateway	United States	databricks.com/product/artificial-intelligence/ai-gateway	47
+Salesforce Prompt Studio / Trust Layer Hooks	United States	salesforce.com/artificial-intelligence/prompt-builder	47
+Google Cloud Vertex AI Prompt Management	United States	cloud.google.com/vertex-ai/generative-ai/docs/model-reference/prompt-classes	47
+Microsoft Prompt Flow (Azure AI Studio)	United States	learn.microsoft.com/en-us/azure/ai-foundry/concepts/prompt-flow	47
+Portkey	United States	portkey.ai	47
+Martian	United States	withmartian.com	47
+OpenRouter	United States	openrouter.ai	47
+Vellum	United States	vellum.ai	47
+TensorZero	United States	tensorzero.com	47
+LiteLLM	website	litellm.ai	47
+Unify	United States	unify.ai	47
+PromptLayer	United States	promptlayer.com	47
+Salesforce Einstein Trust Layer	United States	salesforce.com/artificial-intelligence/trusted-ai	48
+Databricks Mosaic AI Gateway	United States	databricks.com/product/artificial-intelligence/ai-gateway	48
+Cranium	United States	cranium.ai	48
+ModelOp	United States	modelop.com	48
+OneTrust	United States	onetrust.com	48
+IBM Watsonx.Governance	United States	ibm.com/products/watsonx-governance	48
+Securiti	United States	securiti.ai	48
+Arthur	United States	arthur.ai	48
+Dataiku	United States	dataiku.com	48
+Credo AI	United States	credo.ai	48
+Holistic AI	United Kingdom	holisticai.com	48
+Snowflake	United States	snowflake.com/en	48
+Monitaur	United States	monitaur.ai	48
+Validmind	United States	validmind.com	48
+Microsoft Entra Agent	United States	learn.microsoft.com/en-us/entra/security-copilot/entra-agents	48
+Google Cloud Vertex AI	United States	cloud.google.com/vertex-ai	48
+Featurebyte	United States	featurebyte.com	49
+ZenML	Germany	zenml.io/home	49
+Hopsworks	Sweden	hopsworks.ai	49
+Valohai	Finland	valohai.com	49
+Weights & Biases	United States	wandb.ai/site	49
+Azure Machine Learning	United States	azure.microsoft.com/en-us/products/machine-learning	49
+Google Cloud Vertex AI	United States	cloud.google.com/vertex-ai	49
+Amazon SageMaker	United States	aws.amazon.com/sagemaker	49
+Tecton	United States	tecton.ai	49
+Seldon	United Kingdom	seldon.io	49
+KServe	Standardized Distributed Generative and Predictive AI Inference Platform for Scalable, Multi-Framework Deployment on Kubernetes	github.com/kserve/kserve	49
+Ray Serve	website	docs.ray.io/en/latest/serve/index.html	49
+Metaflow	Build, Manage and Deploy AI/ML Systems	github.com/Netflix/metaflow	49
+Feast	United States	feast.dev	49
+MLFlow	The open source developer platform to build AI/LLM applications and models with confidence. Enhance your AI applications with end-to-end tracking, observability, and evaluations, all in one integrated platform.	github.com/mlflow/mlflow	49
+KubeFlow	Machine Learning Toolkit for Kubernetes	github.com/kubeflow/kubeflow	49
+Domino	United States	dominodatalab.com	49
+Flyte	Scalable and flexible workflow orchestration platform that seamlessly unifies data, ML and analytics stacks.	github.com/flyteorg/flyte	49
+Databricks Mosaic AI	United States	mosaicml.com	49
+BentoML	United States	bentoml.com	49
+ClearML	Israel	clear.ml	49
+Labelbox	United States	labelbox.com	50
+Voxel51	United States	voxel51.com	50
+Hive	United States	thehive.ai	50
+Sama	United States	sama.com	50
+Scale	United States	scale.com	50
+Hazy	United Kingdom	hazy.com	50
+Refuel	United States	refuel.ai	50
+Toloka	Netherlands	toloka.ai	50
+Cleanlab	United States	cleanlab.ai	50
+super.ai	United States	super.ai	50
+Kili	France	kili-technology.com	50
+V7	United Kingdom	v7labs.com	50
+MostlyAI	Austria	mostly.ai	50
+Tonic AI	United States	tonic.ai	50
+Gretel	United States	gretel.ai	50
+HumanSignal	United States	humansignal.com	50
+Synthesis AI	United States	synthesis.ai	50
+Coactive	United States	coactive.ai	50
+Aindo	Italy	aindo.com	50
+Surge AI	United States	surgehq.ai	50
+Visual Studio Code	United States	code.visualstudio.com	51
+IBM Watsonx.AI Studio	United States	ibm.com/cloud/watson-studio	51
+Deepnote	United States	deepnote.com	51
+Amazon SageMaker Studio	United States	aws.amazon.com/pm/sagemaker	51
+Google Cloud Vertex AI Workbench	United States	cloud.google.com/vertex-ai	51
+SaturnCloud	United States	saturncloud.io	51
+Azure Notebooks	United States	visualstudio.microsoft.com/vs/features/notebooks-at-microsoft	51
+Jupyter	website	jupyter.org	51
+Databricks Notebooks	United States	databricks.com/product/collaborative-notebooks	51
+Snowflake Notebooks	United States	snowflake.com/en/product/features/notebooks	51
+Google Colab	United States	colab.research.google.com	51
+anaconda	United States	anaconda.com	51
+Knime	Switzerland	knime.com	51
+RapidMiner	United States	rapidminer.com	51
+Sas	United States	sas.com/en_us/home.html	51
+noteable	United States	noteable.io	51
+IBM SPSS Modeler	United States	ibm.com/products/spss-modeler	51
+Mathworks MATLAB	United States	mathworks.com	51
+Posit RStudio / Workbench	United States	posit.co	51
+Servicenow Now Assist Platform	United States	servicenow.com/platform/now-assist.html	52
+Nvidia AI Enterprise	United States	nvidia.com/en-us/data-center/products/ai-enterprise	52
+OpenAI ChatGPT Enterprise	United States	openai.com/index/introducing-chatgpt-enterprise	52
+Oracle OCI Generative AI	United States	oracle.com/artificial-intelligence/generative-ai/generative-ai-service	52
+Anthropic Claude Enterprise	United States	anthropic.com/news/claude-for-enterprise	52
+C3 AI	United States	c3.ai	52
+Salesforce AI Cloud	United States	salesforce.com/artificial-intelligence	52
+SAP Joule / AI Core	Germany	sap.com/products/artificial-intelligence/ai-assistant.html	52
+IBM Watson	United States	ibm.com/watson	52
+Microsoft Azure AI Studio	United States	azure.microsoft.com/en-us/blog/product/azure-ai-studio	52
+Databricks Mosaic AI	United States	databricks.com/product/artificial-intelligence	52
+Palantir Technologies	United States	palantir.com	52
+H2O.ai	United States	h2o.ai	52
+Dataiku	United States	dataiku.com	52
+Snowflake Cortex AI	United States	snowflake.com/en/product/features/cortex	52
+DataRobot	United States	datarobot.com	52
+Cohere North	Canada	cohere.com/north	52
+Google Cloud Vertex AI	United States	cloud.google.com/vertex-ai	52
+AWS Bedrock	United States	aws.amazon.com/bedrock	52
+Nvidia Riva	United States	nvidia.com/en-us/ai-data-science/products/riva	53
+Voicemod	Spain	voicemod.net	53
+OpenAI Whisper	United States	platform.openai.com/docs/models	53
+Gradium	France	gradium.ai	53
+Retell AI	United States	retellai.com	53
+Resemble.ai	United States	resemble.ai	53
+AWS Transcribe / Polly	United States	aws.amazon.com/transcribe	53
+Microsoft Azure AI Speech	United States	azure.microsoft.com/en-us/products/ai-services/ai-speech	53
+Cartesia	United States	cartesia.ai	53
+DeepGram	United States	deepgram.com	53
+AssemblyAI	United States	assemblyai.com	53
+Fixie Ultravox	United States	fixie.ai	53
+Hume AI	United States	hume.ai	53
+Gladia	France	gladia.io	53
+Google Cloud Speech AI (STT/TTS)	United States	cloud.google.com/speech-to-text	53
+Eleven Labs	United States	beta.elevenlabs.io	53
+Sesame	United States	sesame.com	53
+Wellsaid	United States	wellsaidlabs.com	53
+Vapi	United States	vapi.ai	53
+LiveKit	United States	livekit.io	53
+OpenAI Realtime API	United States	platform.openai.com/docs/api-reference/realtime	53
+SpeechMatics	United Kingdom	speechmatics.com	53
+OpenAI GPT-4o (Vision)	United States	platform.openai.com/docs/guides/images-vision	54
+Nvidia TAO Toolkit	United States	developer.nvidia.com/tao-toolkit	54
+Roboflow	United States	roboflow.com	54
+Meta SAM 2	United States	ai.meta.com/sam2	54
+OpenCV	Open Source Computer Vision Library	github.com/opencv/opencv	54
+ONNX	website	github.com/onnx/onnx	54
+Google Vertex AI Vision	United States	cloud.google.com/vertex-ai-vision	54
+Amazon Rekognition	United States	docs.aws.amazon.com/managedservices/latest/userguide/rekognition.html	54
+Chooch	United States	chooch.com	54
+Apple Vision (CoreML)	United States	developer.apple.com/machine-learning/core-ml	54
+Encord	United Kingdom	encord.com	54
+Rerun	Sweden	rerun.io	54
+Intel OpenVINO	United States	intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html	54
+YOLOv8	A computer vision model architecture for detection, classification, segmentation, and more.	yolov8.com	54
+Reflection	United States	reflection.ai	55
+Microsoft Research	United States	microsoft.com/en-us/research	55
+Apple Machine Learning Research	United States	machinelearning.apple.com	55
+Tencent AI Lab	website	ailab.tencent.com/ailab/en/index	55
+Meta Research	United States	research.facebook.com	55
+xAI	United States	x.ai	55
+World Labs	United States	worldlabs.ai	55
+OpenAI	United States	openai.com	55
+Anthropic	United States	anthropic.com	55
+Google DeepMind	United Kingdom	deepmind.com	55
+Mistral AI	France	mistral.ai	55
+01.ai	China	01.ai	55
+DeepSeek	China	deepseek.com	55
+Alibaba Cloud	website	alibabacloud.com/en/solutions/ai/data-intelligence	55
+AI21Labs	Israel	ai21.com	55
+Cohere	Canada	cohere.com	55
+Safe Superintelligence	United States	ssi.inc	55
+Thinking Machines	United States	thinkingmachines.ai	55
+Krutrim	India	olakrutrim.com	55
+NDEA	United States	ndea.com	55
+Moonshot AI	United States	moonshot.ai	55
+G42	United Arab Emirates	g42.ai	55
+H Company	France	hcompany.ai	55
+Imbue	United States	imbue.com	55
+Reka	United States	reka.ai	55
+Liquid	United States	liquid.ai	55
+Sakana AI	Japan	sakana.ai	55
+NVIDIA Research	United States	nvidia.com/en-us/research	55
+LAION	Germany	laion.ai	56
+FAR.AI	United States	far.ai	56
+EPFL	Switzerland	epfl.ch/research	56
+The Alan Turing Institute	United Kingdom	turing.ac.uk	56
+BAIR	United States	bair.berkeley.edu	56
+CAIS	United States	safe.ai	56
+ML Commons	United States	mlcommons.org	56
+Stanford HAI	United States	hai.stanford.edu	56
+ELLIS	Germany	ellis.eu	56
+BigScience	United States	bigscience.huggingface.co	56
+Eleuther AI	United States	eleuther.ai	56
+Epoch AI	United States	epoch.ai	56
+Allen Institute	United States	allenai.org	56
+Kyutai	France	kyutai.org	56
+MIRI	United States	intelligence.org	56
+Vector Institute	Canada	vectorinstitute.ai	56
+MIT Csail	United States	csail.mit.edu	56
+MILA	Canada	mila.quebec/en	56
+Redwood Research	United States	redwoodresearch.org	56
+OpenMined	United States	openmined.org	56
+Google Cloud A3/A3 Mega	United States	docs.cloud.google.com/compute/docs/gpus	57
+Voltage Park	United States	voltagepark.com	57
+AWS P5/P5e (H100/H200)	United States	aws.amazon.com/ec2/instance-types/p5	57
+Nebius	Netherlands	nebius.com	57
+FluidStack	United Kingdom	fluidstack.io	57
+Modal	United States	modal.com	57
+NVIDIA DGX Cloud	United States	nvidia.com/en-us/data-center/dgx-cloud	57
+Lambda	United States	lambdalabs.com	57
+CoreWeave	United States	coreweave.com	57
+Crusoe	United States	crusoe.ai	57
+Baseten	United States	baseten.co	57
+Anyscale	United States	anyscale.com	57
+Replicate	United States	replicate.com	57
+Beam	United States	beam.cloud	57
+DeepInfra	United States	deepinfra.com	57
+Scaleway	France	scaleway.com/en	57
+DigitalOcean Paperspace	United States	paperspace.com	57
+Vast.ai	United States	vast.ai	57
+RunPod	United States	runpod.io	57
+Microsoft Azure ND MI300X	United States	learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ndmi300xv5-series	57
+Prime Intellect	United States	primeintellect.ai	57
+DJL Serving	A universal scalable machine learning model deployment solution	github.com/deepjavalibrary/djl-serving	58
+Microsoft Azure AI Inference	United States	azure.microsoft.com/en-us/blog/product/azure-ai-studio	58
+SGLang	SGLang is a fast serving framework for large language models and vision language models.	github.com/sgl-project/sglang	58
+TensorRT	NVIDIA® TensorRT™ is an SDK for high-performance deep learning inference on NVIDIA GPUs. This repository contains the open source components of TensorRT.	github.com/NVIDIA/TensorRT	58
+Groq	United States	groq.com	58
+Google Cloud Vertex AI Predictions	United States	cloud.google.com/vertex-ai	58
+OpenVINO	Intel focuses on semiconductor manufacturing and computer hardware. The company produces central processing units (CPUs), integrated circuits, and graphics processing units (GPUs), along with advancements in artificial intelligence (AI), analytics, and cloud-to-edge technology. Intel's developments are applied in areas such as artificial intelligence, cloud computing, and edge computing. Intel was formerly known as NM Electronics. It was founded in 1968 and is based in Santa Clara, California.	intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html	58
+vLLM	A high-throughput and memory-efficient inference and serving engine for LLMs	github.com/vllm-project/vllm	58
+Hugging Face TGI	Large Language Model Text Generation Inference	github.com/huggingface/text-generation-inference	58
+Triton Inference Server	The Triton Inference Server provides an optimized cloud and edge inferencing solution.	github.com/triton-inference-server/server	58
+ONNX Runtime	Open standard for machine learning interoperability	github.com/onnx/onnx	58
+TensorFlow	An Open Source Machine Learning Framework for Everyone	github.com/tensorflow/tensorflow	58
+Clarifai	United States	clarifai.com	58
+AWS Bedrock	United States	aws.amazon.com/bedrock	58
+SambaNova	United States	sambanova.ai	58
+NVIDIA FasterTransformer	Transformer related optimization, including BERT, GPT	github.com/NVIDIA/FasterTransformer	58
+Together	United States	together.ai	58
+Fireworks.ai	United States	fireworks.ai	58
+NVIDIA NIM	United States	developer.nvidia.com/nim	58
+TorchServe	Serve, optimize and scale PyTorch models in production	github.com/pytorch/serve	58
+NVIDIA H200 (Hopper)	United States	nvidia.com/en-us/data-center/technologies/hopper-architecture	59
+SambaNova SN40L	United States	sambanova.ai/products/sn40l-rdu-ai-chip	59
+Google TPU V5e (Inference)	United States	docs.cloud.google.com/tpu/docs/v5p	59
+Microsoft Maia 100/200	United States	azure.microsoft.com/en-us/blog/azure-maia-for-the-era-of-ai-from-silicon-to-software-to-systems	59
+AMD MI350	United States	amd.com/en/products/accelerators/instinct/mi350.html	59
+Meta MTIA V2	United States	ai.meta.com/blog/next-generation-meta-training-inference-accelerator-AI-MTIA	59
+NVIDIA Grace Blackwell Tie-Ins	United States	nvidia.com/en-us/data-center/technologies/blackwell-architecture	59
+Google TPU V5p	United States	docs.cloud.google.com/tpu/docs/v5p	59
+Intel Gaudi 3	United States	intel.com/content/www/us/en/products/details/processors/ai-accelerators/gaudi.html	59
+AMD MI300X / MI325X	United States	amd.com/en/products/accelerators/instinct/mi300/mi300x.html	59
+NVIDIA Blackwell (B100/B200)	United States	nvidia.com/en-us/data-center/technologies/blackwell-architecture	59
+Etched	United States	etched.ai	59
+d-Matrix	United States	d-matrix.ai	59
+Tenstorrent	Canada	tenstorrent.com	59
+AWS Trainium 2	United States	aws.amazon.com/ai/machine-learning/trainium	59
+Cerebras WSE-3	United States	cerebras.net	59
+Graphcore	United Kingdom	graphcore.ai	59
+Groq LPU	United States	groq.com	59
+Intel Falcon Shores	United States	mad.firstmark.com	59
+AWS Inferentia 2	United States	aws.amazon.com/ai/machine-learning/inferentia	59
+ONNX Runtime	Open standard for machine learning interoperability	github.com/onnx/onnx	60
+Samsung Exynos	United States	semiconductor.samsung.com/processor	60
+Apple Neural Engine	United States	machinelearning.apple.com/research/neural-engine-transformers	60
+TensorFlow Lite	LiteRT, successor to TensorFlow Lite. is Google's On-device framework for high-performance ML & GenAI deployment on edge platforms, via efficient conversion, runtime, and optimization	github.com/google-ai-edge/LiteRT	60
+Qualcomm Snapdragon	United States	qualcomm.com/snapdragon/overview	60
+Intel NPU (Lunar Lake)	United States	intel.com/content/www/us/en/support/articles/000099574/processors/intel-core-ultra-processors.html	60
+Google Coral (Edge TPU)	United States	docs.cloud.google.com/tpu/docs/v5p	60
+NVIDIA Jetson Orin/Thor	United States	nvidia.com/en-us	60
+Qeexo	United States	qeexo.com	60
+Deeplite	Canada	deeplite.ai	60
+Hailo	Israel	hailo.ai	60
+Mythic	United States	mythic.ai	60
+SiMa.ai	United States	sima.ai	60
+Axelera AI	Netherlands	axelera.ai	60
+Edge Impulse	United States	edgeimpulse.com	60
+Nota AI	South Korea	nota.ai	60
+Armada	United States	armada.ai	60
+AMD Ryzen AI	United States	amd.com/en/products/processors/consumer/ryzen-ai.html	60
+OpenVINO	Intel focuses on semiconductor manufacturing and computer hardware. The company produces central processing units (CPUs), integrated circuits, and graphics processing units (GPUs), along with advancements in artificial intelligence (AI), analytics, and cloud-to-edge technology. Intel's developments are applied in areas such as artificial intelligence, cloud computing, and edge computing. Intel was formerly known as NM Electronics. It was founded in 1968 and is based in Santa Clara, California.	intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html	60
+Narrative	United States	narrative.io	61
+Data.gov	United States	data.gov	61
+Kaggle	United States	kaggle.com	61
+Hugging Face Datasets	France	huggingface.co/docs/datasets/en/index	61
+European Data Portal	The official portal for European data	data.europa.eu/data/datasets	61
+Common Crawl	United States	commoncrawl.org	61
+AWS Data Exchange	United States	aws.amazon.com/data-exchange	61
+Snowflake Marketplace	United States	snowflake.com/en/product/features/marketplace	61
+Dawex	France	dawex.com/en	61
+Databricks Marketplace	United States	databricks.com/product/marketplace	61
+Nomad Data	United States	nomad-data.com	61
+Exa	United States	exa.ai	62
+Linkup	France	linkup.so	62
+Perplexity Web API	United States	perplexity.ai/api-platform	62
+GDELT	United States	gdeltproject.org	62
+Zyte	Ireland	zyte.com	62
+Apify	Czech Republic	apify.com	62
+Brave Search API	United States	brave.com/search/api	62
+Firecrawl	🔥 The Web Data API for AI - Turn entire websites into LLM-ready markdown or structured data	github.com/mendableai/firecrawl	62
+Microsoft Bing Web Search	United States	microsoft.com/en-us/bing/features/web-search	62
+Tavily	United States	tavily.com	62
+YouTube Data API	United States	developers.google.com/youtube/v3	62
+Crawl4AI	🚀🤖 Crawl4AI: Open-source LLM Friendly Web Crawler & Scraper. Don't be shy, join here: <https://discord.gg/jP8KfhDhyN>	github.com/unclecode/crawl4ai	62
+Reddit API	United States	reddit.com/dev/api	62
+Google Custom Search JSON API	United States	developers.google.com/custom-search/v1/overview	62
+Vortexa	United Kingdom	vortexa.com	63
+Thinknum	United States	thinknum.com	63
+Similarweb	United States	similarweb.com	63
+Yipit Data	United States	yipitdata.com	63
+Tegus by Alphasense	United States	tegus.com	63
+S&P Global Capital IQ	United States	spglobal.com/marketintelligence/en/solutions/sp-capital-iq-pro	63
+Nasdaq Quandi	United States	nasdaq.com/nasdaq-data-link	63
+Bloomberg	United States	bloomberg.com	63
+Pitchbook	United States	pitchbook.com	63
+Sparta Commodities	Switzerland	spartacommodities.com	63
+Factset	United States	factset.com	63
+SEC EDGAR	United States	sec.gov/edgar/search-and-access	63
+Kpler	Belgium	kpler.com	63
+Kaiko	France	kaiko.com	63
+SentinelHub	Daily Earth data and analytics for Broad Area Management	sentinel-hub.com	64
+Google Maps Platform	United States	mapsplatform.google.com	64
+Here	Netherlands	here.com	64
+Capella Space	United States	capellaspace.com	64
+Tomorrow.io	United States	tomorrow.io	64
+Meteo Matics	Switzerland	meteomatics.com	64
+Up42	Germany	up42.com	64
+Planet	United States	planet.com	64
+ICEYE	Finland	iceye.com	64
+Vantor	United States	vantor.com	64
+mapbox	United States	mapbox.com	64
+Esri	United States	esri.com/en-us/home	64
+Carto	United States	carto.com	64
+OpenStreetMap	United Kingdom	openstreetmap.org	64
+Atmo	United States	atmo.ai	64
+OpenCorporates	United Kingdom	opencorporates.com	65
+Builtwith	Australia	builtwith.com	65
+Wappalyzer	Australia	wappalyzer.com	65
+Diffbot	United States	diffbot.com	65
+HG Insights	United States	hginsights.com	65
+Truebase	United States	profileapi.com	65
+Clay	United States	clay.com	65
+IPInfo	United States	ipinfo.io	65
+Veridion	Romania	veridion.com	65
+Clearbit by Hubspot	United States	clearbit.com	65
+Crunchbase	United States	crunchbase.com	65
+Zoominfo	United States	zoominfo.com	65
+Cognism	United Kingdom	cognism.com	65
+Apollo	United States	apollo.io	65
+People Data Labs	United States	peopledatalabs.com	65
