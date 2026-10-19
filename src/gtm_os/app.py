@@ -11,7 +11,7 @@ import streamlit as st
 from sqlalchemy import func, or_, select
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from gtm_os.db import (Account, AccountProduct, Activity, Contact, ImportChange, ImportRun, ModelRecord, Note, Product, Project,  # noqa: E402
+from gtm_os.db import (Account, AccountProduct, Alias, Activity, Contact, ImportChange, ImportRun, ModelRecord, Note, Product, Project,  # noqa: E402
                        Rank, Segment, Source, session)
 from gtm_os.services.importer import bootstrap, fetch_lfai, import_lfai, import_seed  # noqa: E402
 
@@ -95,7 +95,7 @@ def accounts_df(filters: dict) -> pd.DataFrame:
         q = select(Account)
         if filters.get("q"):
             like = f"%{filters['q']}%"
-            q = q.where(or_(Account.name.ilike(like), Account.vertical.ilike(like), Account.source_category.ilike(like)))
+            q = q.where(or_(Account.name.ilike(like), Account.vertical.ilike(like), Account.source_category.ilike(like), Account.country.ilike(like), Account.id.in_(select(Alias.account_id).where(Alias.value.ilike(like)))))
         if filters.get("segment"): q = q.where(Account.segment_id == filters["segment"])
         if filters.get("origin"): q = q.where(Account.origin == filters["origin"])
         if filters.get("status"): q = q.where(Account.relationship_status == filters["status"])
@@ -112,7 +112,7 @@ def accounts_df(filters: dict) -> pd.DataFrame:
         for a in accs:
             sc, px = ranks.get((a.id, "scale")), ranks.get((a.id, "proximity"))
             rows.append({"id": a.id, "Account": a.name, "Origin": ORIGIN_LABEL.get(a.origin, a.origin), "Segment": segs.get(a.segment_id, "—") + ("" if a.segment_confirmed else " (proposed)"),
-                         "Vertical": a.vertical or "—", "Products": ", ".join(prods.get(a.id, [])) or "—", "Relationship status": a.relationship_status,
+                         "Vertical": a.vertical or "—", "Country": a.country or "—", "Products": ", ".join(prods.get(a.id, [])) or "—", "Relationship status": a.relationship_status,
                          "Scale rank": rank_txt(sc), "Proximity rank": rank_txt(px), "Scale score": sc.score if sc else None,
                          "Owner": a.owner or "Unassigned", "Priority": a.priority or "—", "Next action": a.next_action or "—"})
     df = pd.DataFrame(rows)
@@ -130,6 +130,7 @@ def view_overview():
         total = s.scalar(select(func.count(Account.id)).where(Account.landscape_stale.is_(False)))
         researched = s.scalar(select(func.count(Account.id)).where(Account.origin == "researched"))
         lf = s.scalar(select(func.count(Account.id)).where(Account.origin == "lfai", Account.landscape_stale.is_(False)))
+        mad = s.scalar(select(func.count(Account.id)).where(Account.origin == "mad", Account.landscape_stale.is_(False)))
         status_set = s.scalar(select(func.count(Account.id)).where(Account.relationship_status != "Unset"))
         owned = s.scalar(select(func.count(Account.id)).where(Account.owner.isnot(None)))
         ranked = s.scalar(select(func.count(func.distinct(Rank.account_id))))
@@ -139,9 +140,9 @@ def view_overview():
         seg_status = {(sg, o): n for sg, o, n in s.execute(select(Account.segment_id, Account.relationship_status, func.count()).group_by(Account.segment_id, Account.relationship_status)).all()}
         next_rows = s.execute(select(Account).where(Account.next_action.isnot(None), Account.origin == "researched").order_by(Account.next_action_due.nulls_last(), Account.name).limit(10)).scalars().all()
         prod_counts = dict(s.execute(select(Product.name, func.count()).join(AccountProduct, AccountProduct.product_id == Product.id).group_by(Product.name)).all())
-    c = st.columns(6)
-    kpi(c[0], total, "Accounts"); kpi(c[1], researched, "Researched"); kpi(c[2], lf, "From LF AI & Data landscape")
-    kpi(c[3], status_set, "Relationship status set"); kpi(c[4], ranked if ranked else "Not computed", "Ranked · rubric v1", na=not ranked); kpi(c[5], due, "Next actions due")
+    c = st.columns(7)
+    kpi(c[0], total, "Accounts"); kpi(c[1], researched, "Researched"); kpi(c[2], mad, "From FirstMark MAD"); kpi(c[3], lf, "From LF AI & Data")
+    kpi(c[4], status_set, "Relationship status set"); kpi(c[5], ranked if ranked else "Not computed", "Ranked · rubric v1", na=not ranked); kpi(c[6], due, "Next actions due")
 
     st.subheader("Value chain · register coverage")
     cols = st.columns(len(segs))
@@ -153,7 +154,7 @@ def view_overview():
     st.subheader("Segment × origin and relationship status")
     rows = []
     for sid, name in segs.items():
-        r = {"Segment": name, "Researched": seg_origin.get((sid, "researched"), 0), "LF AI & Data": seg_origin.get((sid, "lfai"), 0)}
+        r = {"Segment": name, "Researched": seg_origin.get((sid, "researched"), 0), "MAD": seg_origin.get((sid, "mad"), 0), "LF AI & Data": seg_origin.get((sid, "lfai"), 0)}
         for stt in STATUSES[1:]: r[stt] = seg_status.get((sid, stt), 0)
         rows.append(r)
     st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
@@ -188,9 +189,9 @@ def view_accounts():
     with session() as s:
         owners = sorted({o for (o,) in s.execute(select(Account.owner).where(Account.owner.isnot(None))).all()})
     r1 = st.columns([3, 2, 2, 2, 2])
-    f["q"] = r1[0].text_input("Search", value=f.get("q", ""), placeholder="Name, vertical or source category")
+    f["q"] = r1[0].text_input("Search", value=f.get("q", ""), placeholder="Name, product, vertical, country or category")
     f["segment"] = r1[1].selectbox("Segment", [""] + list(segs), index=([""] + list(segs)).index(f.get("segment", "")) if f.get("segment") in segs else 0, format_func=lambda x: segs.get(x, "All segments"))
-    f["origin"] = r1[2].selectbox("Origin", ["", "researched", "lfai", "manual"], format_func=lambda x: ORIGIN_LABEL.get(x, "Any origin"))
+    f["origin"] = r1[2].selectbox("Origin", ["", "researched", "mad", "lfai", "manual"], format_func=lambda x: ORIGIN_LABEL.get(x, "Any origin"))
     f["status"] = r1[3].selectbox("Relationship status", [""] + STATUSES, format_func=lambda x: x or "Any status")
     f["owner"] = r1[4].selectbox("Owner", ["", "Unassigned"] + owners, format_func=lambda x: x or "Any owner")
     r2 = st.columns([2, 2, 2, 2, 3])
@@ -243,6 +244,9 @@ def view_account_detail(aid: str):
                 if children: st.write("Business units: " + ", ".join(c.name for c in children))
                 if a.source_category: st.markdown(f'<p class="muted">Source category: {a.source_category}</p>', unsafe_allow_html=True)
                 if a.homepage: st.write(a.homepage)
+                if a.country: st.write(f"Country: {a.country}")
+                mad_names = [al.value for al in a.aliases if al.alias_type == "mad_name"]
+                if mad_names: st.markdown('<p class="muted">MAD entries: ' + ", ".join(mad_names[:30]) + (" …" if len(mad_names) > 30 else "") + "</p>", unsafe_allow_html=True)
                 st.subheader("Research notes")
                 for n in a.notes:
                     src = f'<a href="{n.source_url}" target="_blank">{n.source.title if n.source else "source"}</a>' if n.source_url else (n.source.title if n.source else "")
@@ -371,9 +375,12 @@ def view_research():
                 p = fetch_lfai(); r = import_lfai(p); st.success(f"Snapshot {p.name}: +{r.added} added, {r.changed} changed, {r.removed} removed")
             except Exception as e:  # noqa: BLE001
                 st.error(f"Fetch failed: {e}")
+        if st.button("Re-run FirstMark MAD import (frozen snapshot)"):
+            from gtm_os.services.importer import import_mad
+            r = import_mad(); st.success(f"Run {r.id}: +{r.added} added, {r.changed} changed, {r.removed} removed, {r.needs_review} to review")
         if c3.button("Re-run seed register (adds missing only)"):
             r = import_seed(); st.success(f"Seed: {r.added} added")
-        st.markdown('<p class="muted">FirstMark MAD: no public data file; the interactive map is PDF-only and its card data is CB Insights-licensed. MAD contributes category structure to the segment taxonomy only. LF AI & Data: landscape.yml (Apache-2.0), fields read: name, homepage_url, repo_url, crunchbase slug, project. Imports never change relationship status, owner, priority, notes, contacts or activities.</p>', unsafe_allow_html=True)
+        st.markdown('<p class="muted">FirstMark MAD 2025: snapshot of the card view (mad.firstmark.com/card), fields read: name, country, website, category; card descriptions and funding (CB Insights) are not imported. Product cards are grouped into their company by website domain or GitHub org. LF AI & Data: landscape.yml (Apache-2.0), fields read: name, homepage_url, repo_url, crunchbase slug, project. Imports never change relationship status, owner, priority, notes, contacts or activities.</p>', unsafe_allow_html=True)
         with session() as s:
             runs = s.execute(select(ImportRun).order_by(ImportRun.ran_at.desc()).limit(30)).scalars().all()
         st.dataframe(pd.DataFrame([{"Run": r.id, "Source": r.source, "Snapshot": r.snapshot_ref, "Ran": r.ran_at.strftime("%Y-%m-%d %H:%M"), "Added": r.added, "Changed": r.changed, "Removed": r.removed, "Review": r.needs_review, "Status": r.status, "Log": " | ".join(r.log or [])} for r in runs]), hide_index=True, width="stretch")
@@ -429,7 +436,7 @@ with st.sidebar:
     if q:
         with session() as s:
             like = f"%{q}%"
-            for a in s.execute(select(Account).where(Account.name.ilike(like)).limit(8)).scalars():
+            for a in s.execute(select(Account).where(or_(Account.name.ilike(like), Account.id.in_(select(Alias.account_id).where(Alias.value.ilike(like))))).limit(8)).scalars():
                 if st.button(f"Account · {a.name}", key=f"s-a-{a.id}"): go_account(a.id); st.rerun()
             for p in s.execute(select(Project).where(Project.name.ilike(like)).limit(5)).scalars():
                 st.caption(f"Project · {p.name}" + (f" ({p.org.name})" if p.org else ""))

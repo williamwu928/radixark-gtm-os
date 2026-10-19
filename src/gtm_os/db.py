@@ -73,6 +73,7 @@ class Account(Base):
     origin: Mapped[str] = mapped_column(String(20), default="researched")  # researched | lfai | mad | manual
     source_category: Mapped[str | None] = mapped_column(String(200))  # category path as the source gives it
     homepage: Mapped[str | None] = mapped_column(String(300))
+    country: Mapped[str | None] = mapped_column(String(80))
     domain: Mapped[str | None] = mapped_column(String(200), index=True)
     github_org: Mapped[str | None] = mapped_column(String(120), index=True)
     hf_org: Mapped[str | None] = mapped_column(String(120), index=True)
@@ -258,8 +259,22 @@ def session() -> Session:
     return _Session()
 
 
+# Columns added after schema v1 shipped: (table, column, DDL type). Applied once, idempotently.
+_ADDED_COLUMNS = [("accounts", "country", "VARCHAR(80)")]
+
+
+def _migrate(eng) -> None:
+    from sqlalchemy import inspect, text
+    insp = inspect(eng)
+    with eng.begin() as conn:
+        for table, col, ddl in _ADDED_COLUMNS:
+            if table in insp.get_table_names() and col not in {c["name"] for c in insp.get_columns(table)}:
+                conn.execute(text(f"ALTER TABLE {table} ADD COLUMN {col} {ddl}"))
+
+
 def init_db() -> None:
     Base.metadata.create_all(engine())
+    _migrate(engine())
     with session() as s:
         if not s.get(Meta, "schema_version"):
             s.add(Meta(key="schema_version", value=str(SCHEMA_VERSION)))
