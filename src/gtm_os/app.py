@@ -146,7 +146,7 @@ def view_overview():
     st.subheader("Value chain · register coverage")
     cols = st.columns(len(segs))
     for col, (sid, name) in zip(cols, segs.items()):
-        if col.button(f"**{seg_counts.get(sid, 0)}**\n\n{name}", key=f"seg-{sid}", use_container_width=True):
+        if col.button(f"**{seg_counts.get(sid, 0)}**\n\n{name}", key=f"seg-{sid}", width="stretch"):
             st.session_state.filters = {"segment": sid}; st.session_state.page = "Accounts"; st.rerun()
     st.markdown(" ".join(f'<span class="pill prod">{k} · {v} accounts</span>' for k, v in prod_counts.items()) + '<span class="muted"> &nbsp;Cross-cutting products. Select a segment to filter Accounts.</span>', unsafe_allow_html=True)
 
@@ -156,7 +156,7 @@ def view_overview():
         r = {"Segment": name, "Researched": seg_origin.get((sid, "researched"), 0), "LF AI & Data": seg_origin.get((sid, "lfai"), 0)}
         for stt in STATUSES[1:]: r[stt] = seg_status.get((sid, stt), 0)
         rows.append(r)
-    st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
 
     st.subheader("Scale × Proximity per segment · rubric v1")
     ranks = rank_map()
@@ -171,7 +171,7 @@ def view_overview():
                     hi_s = bool(sc and sc.rank and sc.of and sc.rank <= max(1, sc.of // 2)); hi_p = bool(px and px.score and px.score >= 2)
                     quad.append({"Segment": segs.get(a.segment_id), "Quadrant": ("High scale" if hi_s else "Low scale") + " · " + ("high proximity" if hi_p else "low proximity")})
         if quad:
-            st.dataframe(pd.DataFrame(quad).value_counts().reset_index(name="Accounts").pivot(index="Segment", columns="Quadrant", values="Accounts").fillna(0).astype(int), use_container_width=True)
+            st.dataframe(pd.DataFrame(quad).value_counts().reset_index(name="Accounts").pivot(index="Segment", columns="Quadrant", values="Accounts").fillna(0).astype(int), width="stretch")
 
     st.subheader("Next actions")
     for a in next_rows:
@@ -212,7 +212,7 @@ def view_accounts():
     if len(df) == 0:
         st.info("No accounts match these filters."); return
     show = df.drop(columns=["id", "Scale score"])
-    ev = st.dataframe(show, hide_index=True, use_container_width=True, on_select="rerun", selection_mode="single-row", height=min(38 + 35 * len(show), 700))
+    ev = st.dataframe(show, hide_index=True, width="stretch", on_select="rerun", selection_mode="single-row", height=min(38 + 35 * len(show), 700))
     sel = ev.selection.rows if ev and ev.selection else []
     if sel:
         go_account(df.iloc[sel[0]]["id"]); st.rerun()
@@ -285,12 +285,12 @@ def view_account_detail(aid: str):
             ms = s.execute(select(ModelRecord).where(ModelRecord.publisher_account_id == a.id).order_by(ModelRecord.downloads_30d.desc().nulls_last())).scalars().all()
             st.subheader("Models published")
             if ms:
-                st.dataframe(pd.DataFrame([{"Model": m.id, "Modality": m.modality, "30-day downloads": m.downloads_30d, "Likes": m.likes, "Providers": ", ".join(m.providers or []), "Snapshot": m.snapshot_date} for m in ms]), hide_index=True, use_container_width=True)
+                st.dataframe(pd.DataFrame([{"Model": m.id, "Modality": m.modality, "30-day downloads": m.downloads_30d, "Likes": m.likes, "Providers": ", ".join(m.providers or []), "Snapshot": m.snapshot_date} for m in ms]), hide_index=True, width="stretch")
             else:
                 st.caption("No models on file. Set the Hugging Face org above and run the HF snapshot from Research → Signals.")
             st.subheader("Projects")
             if a.projects:
-                st.dataframe(pd.DataFrame([{"Project": p.name, "Role": p.role, "Hosting": p.hosting_status or "—", "Repo": p.repo_url, "Category": p.source_category} for p in a.projects]), hide_index=True, use_container_width=True)
+                st.dataframe(pd.DataFrame([{"Project": p.name, "Role": p.role, "Hosting": p.hosting_status or "—", "Repo": p.repo_url, "Category": p.source_category} for p in a.projects]), hide_index=True, width="stretch")
             else:
                 st.caption("No projects linked.")
 
@@ -309,7 +309,7 @@ def view_account_detail(aid: str):
 
         with tabs[3]:
             if a.contacts:
-                st.dataframe(pd.DataFrame([{"Name": c.name, "Title": c.title, "Buying role": c.buying_role, "Email": c.email, "Owner": c.relationship_owner, "Verified": c.last_verified} for c in a.contacts]), hide_index=True, use_container_width=True)
+                st.dataframe(pd.DataFrame([{"Name": c.name, "Title": c.title, "Buying role": c.buying_role, "Email": c.email, "Owner": c.relationship_owner, "Verified": c.last_verified} for c in a.contacts]), hide_index=True, width="stretch")
             else:
                 st.caption("No contacts yet.")
             with st.form("add-contact", clear_on_submit=True):
@@ -342,19 +342,19 @@ def view_models():
         names = {a.id: a.name for a in s.execute(select(Account)).scalars()}
     with t1:
         if ms:
-            st.dataframe(pd.DataFrame([{"Model": m.id, "Publisher": names.get(m.publisher_account_id, "—"), "Modality": m.modality, "30-day downloads": m.downloads_30d, "Likes": m.likes, "Providers": ", ".join(m.providers or []), "SGLang supported": m.sglang_supported, "Snapshot": m.snapshot_date} for m in ms]), hide_index=True, use_container_width=True)
+            st.dataframe(pd.DataFrame([{"Model": m.id, "Publisher": names.get(m.publisher_account_id, "—"), "Modality": m.modality, "30-day downloads": m.downloads_30d, "Likes": m.likes, "Providers": ", ".join(m.providers or []), "SGLang supported": m.sglang_supported, "Snapshot": m.snapshot_date} for m in ms]), hide_index=True, width="stretch")
         else:
             st.info("No models yet. Set Hugging Face org identifiers on accounts, then run the HF snapshot in Research → Signals.")
     with t2:
         q = st.text_input("Filter projects")
         rows = [{"Project": p.name, "Role": p.role, "Hosting": p.hosting_status or "—", "Backing organization": names.get(p.org_account_id, "—"), "Category": p.source_category or "—", "Repo": p.repo_url or ""} for p in ps if not q or q.lower() in p.name.lower() or q.lower() in (names.get(p.org_account_id, "") or "").lower()]
-        st.caption(f"{len(rows)} projects"); st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True, height=600)
+        st.caption(f"{len(rows)} projects"); st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch", height=600)
     with t3:
         prov = {}
         for m in ms:
             for p in (m.providers or []): prov.setdefault(p, []).append(m.id)
         if prov:
-            st.dataframe(pd.DataFrame([{"Provider": k, "Models served (of those on file)": len(v)} for k, v in sorted(prov.items(), key=lambda x: -len(x[1]))]), hide_index=True, use_container_width=True)
+            st.dataframe(pd.DataFrame([{"Provider": k, "Models served (of those on file)": len(v)} for k, v in sorted(prov.items(), key=lambda x: -len(x[1]))]), hide_index=True, width="stretch")
         else:
             st.info("Provider mappings arrive with the Hugging Face snapshot.")
 
@@ -376,7 +376,7 @@ def view_research():
         st.markdown('<p class="muted">FirstMark MAD: no public data file; the interactive map is PDF-only and its card data is CB Insights-licensed. MAD contributes category structure to the segment taxonomy only. LF AI & Data: landscape.yml (Apache-2.0), fields read: name, homepage_url, repo_url, crunchbase slug, project. Imports never change relationship status, owner, priority, notes, contacts or activities.</p>', unsafe_allow_html=True)
         with session() as s:
             runs = s.execute(select(ImportRun).order_by(ImportRun.ran_at.desc()).limit(30)).scalars().all()
-        st.dataframe(pd.DataFrame([{"Run": r.id, "Source": r.source, "Snapshot": r.snapshot_ref, "Ran": r.ran_at.strftime("%Y-%m-%d %H:%M"), "Added": r.added, "Changed": r.changed, "Removed": r.removed, "Review": r.needs_review, "Status": r.status, "Log": " | ".join(r.log or [])} for r in runs]), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame([{"Run": r.id, "Source": r.source, "Snapshot": r.snapshot_ref, "Ran": r.ran_at.strftime("%Y-%m-%d %H:%M"), "Added": r.added, "Changed": r.changed, "Removed": r.removed, "Review": r.needs_review, "Status": r.status, "Log": " | ".join(r.log or [])} for r in runs]), hide_index=True, width="stretch")
     with t2:
         from gtm_os.adapters.signals import snapshot_github, snapshot_huggingface
         from gtm_os.services.ranking import compute_ranks
@@ -393,12 +393,12 @@ def view_research():
             hf_n = s.scalar(select(func.count(Account.id)).where(Account.hf_org.isnot(None))); gh_n = s.scalar(select(func.count(Account.id)).where(Account.github_org.isnot(None)))
             last = {r.source: r for r in s.execute(select(ImportRun).order_by(ImportRun.ran_at)).scalars()}
         st.dataframe(pd.DataFrame([
-            {"Signal": "Model downloads, releases, providers", "Feeds": "Scale (model developers), Proximity", "Source": "Hugging Face API", "Accounts with identifier": hf_n, "Last run": last["huggingface"].ran_at.strftime("%Y-%m-%d") if "huggingface" in last else "None"},
-            {"Signal": "Contributors to sgl-project / Miles; org repos", "Feeds": "Proximity, Scale", "Source": "GitHub API", "Accounts with identifier": gh_n, "Last run": last["github"].ran_at.strftime("%Y-%m-%d") if "github" in last else "None"},
+            {"Signal": "Model downloads, releases, providers", "Feeds": "Scale (model developers), Proximity", "Source": "Hugging Face API", "Accounts with identifier": str(hf_n), "Last run": last["huggingface"].ran_at.strftime("%Y-%m-%d") if "huggingface" in last else "None"},
+            {"Signal": "Contributors to sgl-project / Miles; org repos", "Feeds": "Proximity, Scale", "Source": "GitHub API", "Accounts with identifier": str(gh_n), "Last run": last["github"].ran_at.strftime("%Y-%m-%d") if "github" in last else "None"},
             {"Signal": "Endpoints, pricing, throughput", "Feeds": "Scale (clouds, providers)", "Source": "Artificial Analysis", "Accounts with identifier": "—", "Last run": "Not built"},
             {"Signal": "SGLang supported models, time-to-support", "Feeds": "Proximity", "Source": "sglang.io/models", "Accounts with identifier": "—", "Last run": "Not built"},
             {"Signal": "Open ML / infra roles", "Feeds": "Scale (applications, enterprise)", "Source": "Job boards", "Accounts with identifier": "—", "Last run": "Not built"},
-        ]), hide_index=True, use_container_width=True)
+        ]), hide_index=True, width="stretch")
         st.caption("Set HF_TOKEN and GITHUB_TOKEN in the environment for higher rate limits.")
     with t3:
         with session() as s:
@@ -414,7 +414,7 @@ def view_research():
         with session() as s:
             srcs = s.execute(select(Source)).scalars().all()
             counts = dict(s.execute(select(Note.source_id, func.count()).group_by(Note.source_id)).all())
-        st.dataframe(pd.DataFrame([{"ID": x.id, "Title": x.title, "URL": x.url or "", "Type": (x.type or "").replace("_", " "), "Published": x.published or "", "Notes using it": counts.get(x.id, 0)} for x in srcs]), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame([{"ID": x.id, "Title": x.title, "URL": x.url or "", "Type": (x.type or "").replace("_", " "), "Published": x.published or "", "Notes using it": counts.get(x.id, 0)} for x in srcs]), hide_index=True, width="stretch")
 
 
 # ---------- shell ----------
