@@ -124,7 +124,7 @@ def _add_alias(s, account_id, alias_type, value):
 
 # ---------- Seed register ----------
 def import_seed(path: Path = SEED_PATH) -> ImportRun:
-    seed = json.loads(Path(path).read_text())
+    seed = json.loads(Path(path).read_text(encoding="utf-8"))
     log = []
     with session() as s:
         run = ImportRun(source="seed", snapshot_ref=str(path.name))
@@ -202,7 +202,7 @@ def latest_lfai_snapshot() -> Path | None:
 def normalize_lfai(path: Path) -> tuple[list[dict], list[dict]]:
     """Allowlisted fields only: name, homepage_url, repo_url, crunchbase, project. Crunchbase-derived
     enrichment is never read. Returns (organizations, projects)."""
-    d = yaml.safe_load(path.read_text())
+    d = yaml.safe_load(path.read_text(encoding="utf-8"))
     orgs: dict[str, dict] = {}
     projects: list[dict] = []
     for cat in d["landscape"]:

@@ -3,3 +3,7 @@
 __pycache__/
 .venv/
 .streamlit/secrets.toml
+
+.test-tmp/
+.pytest_cache/
+data/backups/
