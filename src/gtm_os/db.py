@@ -227,6 +227,21 @@ class Activity(Base):
     account: Mapped[Account] = relationship(back_populates="activities")
 
 
+class Opportunity(Base):
+    """One current opportunity per existing account, independent of source research."""
+    __tablename__ = "account_opportunities"
+    account_id: Mapped[str] = mapped_column(ForeignKey("accounts.id"), primary_key=True)
+    icp_segment: Mapped[str] = mapped_column(String(80), default="Unclassified")
+    workload: Mapped[str] = mapped_column(Text, default="")
+    hypothesis: Mapped[str] = mapped_column(Text, default="")
+    opportunity_type: Mapped[str] = mapped_column(String(20), default="")
+    stage: Mapped[str] = mapped_column(String(20), default="Research")
+    basis: Mapped[str] = mapped_column(String(30), default="Hypothesis")
+    evidence: Mapped[str] = mapped_column(Text, default="")
+    details: Mapped[dict] = mapped_column(JSON, default=dict)
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
 class Meta(Base):
     __tablename__ = "meta"
     key: Mapped[str] = mapped_column(String(40), primary_key=True)
@@ -273,6 +288,7 @@ def _migrate(eng) -> None:
 
 
 def init_db() -> None:
+    _backup_before_crm_upgrade(engine())
     Base.metadata.create_all(engine())
     _migrate(engine())
     with session() as s:
@@ -284,3 +300,31 @@ def init_db() -> None:
 def is_empty() -> bool:
     with session() as s:
         return s.execute(select(Account.id).limit(1)).first() is None
+
+
+def _backup_before_crm_upgrade(eng) -> None:
+    """Back up an existing register before the additive opportunity-table upgrade."""
+    from sqlalchemy import inspect, MetaData
+    import gzip
+    import json
+    import sqlite3
+    tables = inspect(eng).get_table_names()
+    if "accounts" not in tables or "account_opportunities" in tables:
+        return
+    folder = Path(os.environ.get("GTM_BACKUP_DIR", ROOT / "data" / "backups"))
+    folder.mkdir(parents=True, exist_ok=True)
+    stamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S%f")
+    if eng.dialect.name == "sqlite" and eng.url.database not in (None, "", ":memory:"):
+        with sqlite3.connect(eng.url.database) as source, sqlite3.connect(folder / f"before-crm-{stamp}.db") as target:
+            source.backup(target)
+    else:
+        metadata = MetaData()
+        with eng.connect() as conn:
+            if eng.dialect.name == "postgresql":
+                conn = conn.execution_options(isolation_level="REPEATABLE READ")
+            with conn.begin():
+                metadata.reflect(conn)
+                snapshot = {table.name: [dict(row) for row in conn.execute(select(table)).mappings()]
+                            for table in metadata.sorted_tables}
+                with gzip.open(folder / f"before-crm-{stamp}.json.gz", "wt", encoding="utf-8") as out:
+                    json.dump(snapshot, out, default=str)

@@ -24,7 +24,7 @@ def test_views_render(view):
 
 def test_account_detail_renders():
     at = run("Accounts", "ACC-019")
-    text = " ".join(m.value for m in at.markdown)
+    text = " ".join(m.value for m in at.title)
     assert "Alibaba Cloud / Bailian" in text
 
 

@@ -38,7 +38,7 @@ def test_bootstrap_and_idempotent_imports():
 
 def test_ranks_do_not_invent():
     r = compute_ranks()
-    assert r["scale_ranks"] == 0  # no HF/GitHub snapshot in tests → no scale rank, never a zero
+    assert r["scale_ranks"] == 0  # no HF/GitHub snapshot in tests â†’ no scale rank, never a zero
 
 
 def _run(page=None, acct=None):
@@ -51,7 +51,7 @@ def _run(page=None, acct=None):
 
 
 def test_overview_renders():
-    at = _run("Overview"); assert any("Overview" in t.value for t in at.title)
+    at = _run("Overview"); assert any("GTM-OS-IC" in t.value for t in at.title)
 
 
 def test_accounts_renders():
