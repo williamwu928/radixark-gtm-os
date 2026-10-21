@@ -1,6 +1,6 @@
 """Account intelligence in the existing database; imports never overwrite CRM edits."""
 from sqlalchemy import select
-from gtm_os.db import Account, Opportunity, session
+from gtm_os.db import Account, Opportunity, Note, session
 
 SEGMENTS = ["AI Model Labs", "AI-native Applications", "Enterprise AI Teams", "GPU Clouds & Inference Providers", "Chipmakers", "Hyperscalers", "Unclassified"]
 STAGES = ["Research", "Qualified", "Engaged", "Pilot", "Production"]
@@ -50,6 +50,9 @@ def initialize():
 def rows(query="", segment="", opportunity_type="", stage="", sort="Account"):
     with session() as s:
         records = s.execute(select(Account, Opportunity).outerjoin(Opportunity, Opportunity.account_id == Account.id)).all()
+        research = {}
+        for note in s.scalars(select(Note).order_by(Note.date.desc(), Note.id.desc())):
+            research.setdefault(note.account_id, "Research: " + note.text)
         result = []
         for a, o in records:
             icp = o.icp_segment if o else segment_for(a)
@@ -63,7 +66,7 @@ def rows(query="", segment="", opportunity_type="", stage="", sort="Account"):
             d = (o.details or {}) if o else {}
             result.append({"id": a.id, "Account": a.name, "ICP Segment": icp,
                 "Workload": o.workload if o else "", "Opportunity": hypothesis,
-                "Opportunity Type": typ, "Trigger / Evidence": o.evidence if o else "",
+                "Opportunity Type": typ, "Trigger / Evidence": (o.evidence if o else "") or research.get(a.id, ""),
                 "Stage": current_stage, "Contact / Warm Path": d.get("contact") or d.get("warm_path", ""),
                 "Next Action": a.next_action or d.get("suggested_action", ""), "Owner": a.owner or "Unassigned",
                 "Due Date": a.next_action_due})
@@ -88,5 +91,7 @@ def save(aid, *, name, website, owner, next_action, due, segment, workload, hypo
         a.name, a.homepage, a.owner = name.strip(), website.strip() or None, owner.strip() or None
         a.next_action, a.next_action_due = next_action.strip() or None, due
         o.icp_segment, o.workload, o.hypothesis = segment, workload, hypothesis
+        details = dict(details)
+        details.pop("suggested_action", None)  # An intentionally cleared action must stay cleared.
         o.opportunity_type, o.stage, o.basis, o.evidence, o.details = opportunity_type, stage, basis, evidence, details
         s.commit()
